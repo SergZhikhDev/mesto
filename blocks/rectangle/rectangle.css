@@ -1,4 +1,4 @@
-.rectangle{
+.rectangle {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -10,12 +10,10 @@
   row-gap: 0;
   column-gap: 0;
   list-style: none;
-
 }
 
-@media screen and (max-width: 751px){
+@media screen and (max-width: 751px) {
   .rectangle {
     grid-template-columns: auto 50px;
-
-}
+  }
 }

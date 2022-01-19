@@ -1,7 +1,7 @@
 .form__name {
   margin: 0 0 13px;
   padding: 0;
-  width:100%;
+  width: 100%;
   font-family: inherit;
   font-style: normal;
   font-weight: normal;
@@ -10,4 +10,3 @@
   color: #000000;
   border: none;
 }
-

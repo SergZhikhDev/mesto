@@ -12,8 +12,6 @@
 
 @media screen and (max-width: 1025px) {
   .profile-info__name {
-    /* font-size: 38px; */
-    /* width: 275px; */
   }
 }
 
@@ -21,7 +19,7 @@
   .profile-info__name {
     margin-right: 10px;
     font-size: 36px;
-    /* width: 240px; */
+
     width: clamp(230px, 40vw, 260px);
   }
 }

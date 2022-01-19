@@ -5,14 +5,12 @@
   font-weight: normal;
   font-size: 18px;
   line-height: 1.22;
-
   color: #545454;
 }
 
 @media screen and (max-width: 371px) {
   .footer__copyright {
     font-size: 14px;
-line-height: 1.21
-;
+    line-height: 1.21;
   }
 }

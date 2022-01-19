@@ -9,13 +9,14 @@
   list-style: none;
 }
 
-@media screen and (max-width: 801px){
+@media screen and (max-width: 801px) {
   .elements {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
   }
 }
-@media screen and (max-width: 501px){
+
+@media screen and (max-width: 501px) {
   .elements {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);

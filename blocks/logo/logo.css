@@ -1,4 +1,4 @@
-.logo{
+.logo {
   width: 142px;
   margin-left: 0;
   margin-right: auto;
@@ -8,11 +8,8 @@
   color: #ffffff;
 }
 
-
-
 @media screen and (max-width: 371px) {
-  .logo{
+  .logo {
     width: 103.74px;
-
   }
 }
