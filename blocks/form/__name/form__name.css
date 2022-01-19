@@ -1,0 +1,13 @@
+.form__name {
+  margin: 0 0 13px;
+  padding: 0;
+  width:100%;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.21;
+  color: #000000;
+  border: none;
+}
+

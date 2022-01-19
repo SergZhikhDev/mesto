@@ -1,0 +1,33 @@
+.profile-info {
+    margin: 0 auto 0 30px;
+    /* max-width: 336px; */
+    width: clamp(282px, 45vw, 336px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+
+
+@media screen and (max-width: 1025px){
+  .profile-info {
+    /* margin: 0 auto 0 20px; */
+  }
+}
+
+@media screen and (max-width: 801px){
+  .profile-info {
+    margin: 0 auto 0 20px;
+    /* width: 282px; */
+    width: clamp(262px, 45vw, 295px);
+  }
+}
+@media screen and (max-width: 751px){
+  .profile-info {
+    margin: 0;
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+}

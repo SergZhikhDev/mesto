@@ -1,0 +1,16 @@
+.edit-button__pen{
+  margin: 7px;
+  padding: 0;
+  width: 10px;
+  height: 10px;
+}
+
+
+@media screen and (max-width: 371px) {
+  .edit-button {
+
+
+    width: 7.5px;
+    height: 7.5px;
+  }
+}

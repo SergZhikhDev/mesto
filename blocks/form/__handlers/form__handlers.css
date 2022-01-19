@@ -1,0 +1,22 @@
+.form__handlers {
+  margin: 18px auto 37px;
+  padding: 0;
+  width: 358px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+
+  background: #000;
+}
+
+@media screen and (max-width: 501px) {
+  .form__handlers {
+    margin: 15px auto 25px;
+    width: 238px;
+    padding: 0;
+    width: 74px;
+
+  }
+}

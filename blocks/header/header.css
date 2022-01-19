@@ -1,0 +1,33 @@
+.header {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 74px;
+  color: #fff;
+  background-color: #000;
+  display: flex;
+  box-sizing: border-box;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1025px) {
+  .header {
+    width: 115%;
+  }
+}
+
+@media screen and (max-width: 801px) {
+  .header {
+    width: 110%;
+  }
+}
+
+@media screen and (max-width: 371px) {
+  .header {
+    width: 100%;
+    height: 56px;
+  }
+}
