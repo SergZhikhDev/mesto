@@ -20,6 +20,6 @@
 * Markdown
 
 
-* [Ссылка на проект в Git Hub Pages](https://234349.github.io/russian-travel/)
+* [Ссылка на проект в Git Hub Pages](https://234349.github.io/mesto/)
 
 
