@@ -26,8 +26,4 @@
   }
 }
 
-@media screen and (max-width: 371px) {
-  .profile-info__about-self {
-    font-size: 14px;
-  }
-}
+

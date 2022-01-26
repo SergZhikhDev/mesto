@@ -23,7 +23,7 @@
   }
 }
 
-@media screen and (max-width: 371px) {
+@media screen and (max-width: 501px) {
   .edit-button {
     padding: 2.5px;
     top: 34px;
