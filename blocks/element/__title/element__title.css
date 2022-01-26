@@ -1,4 +1,4 @@
-.rectangle__title {
+.element__title {
   margin: 22px 1px 28px 21px;
   padding: 0;
   width: calc(100% - 25px);
@@ -13,7 +13,7 @@
 }
 
 @media screen and (max-width: 751px) {
-  .rectangle__title {
+  .element__title {
     font-size: clamp(16px, 3vw, 24px);
     margin-top: 28px;
     margin-left: 15px;
@@ -22,7 +22,7 @@
 }
 
 @media screen and (max-width: 501px) {
-  .rectangle__title {
+  .element__title {
     font-size: 24px;
     margin-top: 22px;
     margin-left: 21px;

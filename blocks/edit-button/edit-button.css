@@ -10,22 +10,23 @@
   background-repeat: no-repeat;
 }
 
+.edit-button:hover {
+  opacity: 0.6;
+}
+
 @media screen and (max-width: 751px) {
   .edit-button {
-    margin: 0;
     position: absolute;
-    top: 40px;
+    top: 36px;
     right: 19px;
+    z-index: 2;
   }
 }
 
 @media screen and (max-width: 371px) {
   .edit-button {
-    margin: 0;
     padding: 2.5px;
-    position: absolute;
     top: 34px;
-    right: 19px;
     width: 18px;
     height: 18px;
   }

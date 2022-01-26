@@ -1,9 +1,9 @@
 .footer {
   margin: 0;
-  width: 100%;
+  width: 68.75%;
 }
 
-@media screen and (max-width: 1025px) {
+/*@media screen and (max-width: 1025px) {
   .footer {
     width: 115%;
   }
@@ -13,10 +13,10 @@
   .footer {
     width: 110%;
   }
-}
+}*/
 
-@media screen and (max-width: 371px) {
+@media screen and (max-width: 501px) {
   .footer {
-    width: 100%;
+    width: 88.125%;
   }
 }

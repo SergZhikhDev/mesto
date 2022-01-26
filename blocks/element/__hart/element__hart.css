@@ -1,5 +1,5 @@
-.rectangle__hart {
-   margin: 30px 20px;
+.element__hart {
+  margin: 30px 20px;
   padding: 0;
   width: 22px;
   height: 19px;
@@ -8,19 +8,21 @@
   background-position: center;
   background-repeat: no-repeat;
   border: none;
-
 }
 
-.rectangle__hart:active {
+.element__hart:hover {
+  opacity: 0.5;
+}
+
+.element__hart:active {
   background-image: url(../../../images/Hart.svg);
 }
 
-@media screen and (max-width: 751px){
-  .rectangle__hart {
-    margin: 30px 15px;
-  padding: 0;
-  width: 22px;
-  height: 19px;
-
-}
+@media screen and (max-width: 751px) {
+  .element__hart {
+    margin: 30px 20px 30px 5px;
+    padding: 0;
+    width: 22px;
+    height: 19px;
+  }
 }

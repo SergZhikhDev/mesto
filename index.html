@@ -10,7 +10,7 @@
   <body class="page">
     <header class="header">
       <img class="logo" src="./images/logo.svg" alt="логотип проекта Mesto" />
-      <div class="item-line item-line_header"></div>
+      <!-- <div class="item-line item-line_header"></div> -->
     </header>
 
     <main class="content">
@@ -22,7 +22,7 @@
         />
         <div class="profile-info">
           <h1 class="profile-info__name">Жак-Ив Кусто</h1>
-          <button class="edit-button"></button>
+          <button type="button" class="edit-button"></button>
           <p class="profile-info__about-self">Исследователь океана</p>
         </div>
         <button class="profile__add-button"></button>
@@ -31,70 +31,70 @@
       <section class="places">
         <ul class="elements">
           <li class="element">
-            <div class="rectangle">
-              <img
-                class="rectangle__image"
-                src="./images/kirill-pershin-1556355-unsplash.jpg"
-                alt="красота "
-              />
-              <h2 class="rectangle__title">Домбай</h2>
-              <button class="rectangle__hart"></button>
-            </div>
+            <!-- <div class="rectangle"> -->
+            <img
+              class="element__image"
+              src="./images/kirill-pershin-1556355-unsplash.jpg"
+              alt="красота "
+            />
+            <h2 class="element__title">Домбай</h2>
+            <button type="button" class="element__hart"></button>
+            <!-- </div> -->
           </li>
           <li class="element">
-            <div class="rectangle">
-              <img
-                class="rectangle__image"
-                src="./images/kirill-pershin-1088404-unsplash(1).jpg"
-                alt="красота "
-              />
-              <h2 class="rectangle__title">Карачаево-Черкессия</h2>
-              <button class="rectangle__hart"></button>
-            </div>
+            <!-- <div class="rectangle"> -->
+            <img
+              class="element__image"
+              src="./images/kirill-pershin-1088404-unsplash(1).jpg"
+              alt="красота "
+            />
+            <h2 class="element__title">Карачаево-Черкессия</h2>
+            <button type="button" class="element__hart"></button>
+            <!-- </div> -->
           </li>
           <li class="element">
-            <div class="rectangle">
-              <img
-                class="rectangle__image"
-                src="./images/kirill-pershin-1404681-unsplash.jpg"
-                alt="красота "
-              />
-              <h2 class="rectangle__title">Гора Эльбрус</h2>
-              <button class="rectangle__hart"></button>
-            </div>
+            <!-- <div class="rectangle"> -->
+            <img
+              class="element__image"
+              src="./images/kirill-pershin-1404681-unsplash.jpg"
+              alt="красота "
+            />
+            <h2 class="element__title">Гора Эльбрус</h2>
+            <button type="button" class="element__hart"></button>
+            <!-- </div> -->
           </li>
           <li class="element">
-            <div class="rectangle">
-              <img
-                class="rectangle__image"
-                src="./images/жигули.jpg"
-                alt="красота "
-              />
-              <h2 class="rectangle__title">Самарская лука</h2>
-              <button class="rectangle__hart"></button>
-            </div>
+            <!-- <div class="rectangle"> -->
+            <img
+              class="element__image"
+              src="./images/жигули.jpg"
+              alt="красота "
+            />
+            <h2 class="element__title">Самарская лука</h2>
+            <button type="button" class="element__hart"></button>
+            <!-- </div> -->
           </li>
           <li class="element">
-            <div class="rectangle">
-              <img
-                class="rectangle__image"
-                src="./images/жигули1.jpg"
-                alt="красота "
-              />
-              <h2 class="rectangle__title">Жигулёвские горы</h2>
-              <button class="rectangle__hart"></button>
-            </div>
+            <!-- <div class="rectangle"> -->
+            <img
+              class="element__image"
+              src="./images/жигули1.jpg"
+              alt="красота "
+            />
+            <h2 class="element__title">Жигулёвские горы</h2>
+            <button type="button" class="element__hart"></button>
+            <!-- </div> -->
           </li>
           <li class="element">
-            <div class="rectangle">
-              <img
-                class="rectangle__image"
-                src="./images/самарскаялука.jpg"
-                alt="красота "
-              />
-              <h2 class="rectangle__title">Жигули штольни</h2>
-              <button class="rectangle__hart"></button>
-            </div>
+            <!-- <div class="rectangle"> -->
+            <img
+              class="element__image"
+              src="./images/самарскаялука.jpg"
+              alt="красота "
+            />
+            <h2 class="element__title">Жигули штольни</h2>
+            <button type="button" class="element__hart"></button>
+            <!-- </div> -->
           </li>
         </ul>
       </section>
@@ -106,32 +106,32 @@
     <div class="popup">
       <div class="popup__container">
         <button class="popup__close"></button>
+        <h3 class="form__heading">Редактировать профиль</h3>
+        <form name="editForm" class="form">
+          <!-- <div class="form__main-container"> -->
 
-        <form class="form">
-          <div class="form__main-container">
-            <h3 class="form__heading">Редактировать профиль</h3>
-            <fieldset class="form__input-container">
-              <input
-                type="text"
-                name="name"
-                class="form__name"
-                id="name"
-                placeholder="Жак-Ив Кусто"
-                value=""
-              />
-              <div class="item-line item-line_form"></div>
+          <fieldset class="form__input-container">
+            <input
+              type="text"
+              name="name"
+              class="form__inputArea"
+              id="name"
+              placeholder="Жак-Ив Кусто"
+              value=""
+            />
+            <!-- <div class="item-line item-line_form"></div> -->
 
-              <input
-                type="text"
-                name="about-self"
-                class="form__about-self"
-                id="about-self"
-                placeholder="Исследователь океана"
-                value=""
-              />
-              <div class="item-line item-line_form"></div>
-            </fieldset>
-          </div>
+            <input
+              type="text"
+              name="about-self"
+              class="form__inputArea"
+              id="about-self"
+              placeholder="Исследователь океана"
+              value=""
+            />
+            <!-- <div class="item-line item-line_form"></div> -->
+          </fieldset>
+          <!-- </div> -->
 
           <fieldset class="form__handlers">
             <input type="submit" class="form__button" value="Сохранить" />
@@ -140,6 +140,6 @@
       </div>
     </div>
     <script src="./scripts/index.js"></script>
-    <script src="./scripts/form.js"></script>
+
   </body>
 </html>

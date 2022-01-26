@@ -1,10 +1,11 @@
 .header {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 74px;
+  width: 68.75%;
+  min-height: 74px;
   color: #fff;
   background-color: #000;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
   display: flex;
   box-sizing: border-box;
   align-items: flex-start;
@@ -13,7 +14,7 @@
   justify-content: space-between;
 }
 
-@media screen and (max-width: 1025px) {
+/*@media screen and (max-width: 1025px) {
   .header {
     width: 115%;
   }
@@ -23,11 +24,11 @@
   .header {
     width: 110%;
   }
-}
+}*/
 
-@media screen and (max-width: 371px) {
+@media screen and (max-width: 501px) {
   .header {
     width: 100%;
-    height: 56px;
+    min-height: 56px;
   }
 }

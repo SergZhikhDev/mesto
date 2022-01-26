@@ -7,11 +7,14 @@
   font-weight: normal;
   font-size: 18px;
   line-height: 1.22;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 751px) {
   .profile-info__about-self {
-    margin-bottom: 36px;
+    margin-bottom: 31px;
     text-align: center;
   }
 }
@@ -26,6 +29,5 @@
 @media screen and (max-width: 371px) {
   .profile-info__about-self {
     font-size: 14px;
-    line-height: 1.21;
   }
 }

@@ -1,6 +1,6 @@
 .content {
   margin: 0;
-  width: 100%;
+  width: 68.75%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@
   align-content: center;
 }
 
-@media screen and (max-width: 1025px) {
+/*@media screen and (max-width: 1025px) {
   .content {
     width: 115%;
   }
@@ -18,10 +18,10 @@
   .content {
     width: 110%;
   }
-}
+}*/
 
-@media screen and (max-width: 371px) {
+@media screen and (max-width: 501px) {
   .content {
-    width: 100%;
+    width: 88.125%;
   }
 }

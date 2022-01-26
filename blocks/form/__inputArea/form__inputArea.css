@@ -1,0 +1,13 @@
+.form__inputArea{
+  margin: 0 0 30px;
+  padding: 0 0 13px;
+  width: 100%;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;/* в проекте указана величина 16,94px. Использование данного размера невозможно т.к. приводит к увеличению высоты элемента и PixelPerf будет не совпадать*/
+  color: #000000;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
