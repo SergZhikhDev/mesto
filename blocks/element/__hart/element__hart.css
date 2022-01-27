@@ -8,6 +8,7 @@
   background-position: center;
   background-repeat: no-repeat;
   border: none;
+  cursor: pointer;
 }
 
 .element__hart:hover {
@@ -18,11 +19,9 @@
   background-image: url(../../../images/Hart.svg);
 }
 
-@media screen and (max-width: 751px) {
+@media screen and (max-width: 501px) {
   .element__hart {
-    margin: 30px 20px 30px 5px;
-    padding: 0;
-    width: 22px;
-    height: 19px;
+    margin-left: 5px;
+
   }
 }

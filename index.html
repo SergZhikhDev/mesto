@@ -22,10 +22,10 @@
         />
         <div class="profile-info">
           <h1 class="profile-info__name">Жак-Ив Кусто</h1>
-          <button type="button" class="edit-button"></button>
+          <button type="button" class="profile-info__edit-button"></button>
           <p class="profile-info__about-self">Исследователь океана</p>
         </div>
-        <button class="profile__add-button"></button>
+        <button type="button" class="profile__add-button"></button>
       </section>
 
       <section class="places">
@@ -105,7 +105,7 @@
     </footer>
     <div class="popup">
       <div class="popup__container">
-        <button class="popup__close"></button>
+        <button type="button" class="popup__close"></button>
         <h3 class="popup__heading">Редактировать профиль</h3>
         <form name="editForm" class="form">
           <!-- <div class="form__main-container"> -->
@@ -114,27 +114,27 @@
             <input
               type="text"
               name="name"
-              class="form__inputArea"
+              class="form__input-area"
               id="name"
-              placeholder="Жак-Ив Кусто"
-              value=""
+              placeholder="Введите имя"
+              value="Жак-Ив Кусто"
             />
             <!-- <div class="item-line item-line_form"></div> -->
 
             <input
               type="text"
               name="about-self"
-              class="form__inputArea"
+              class="form__input-area"
               id="about-self"
-              placeholder="Исследователь океана"
-              value=""
+              placeholder="Введите род деятельности"
+              value="Исследователь океана"
             />
             <!-- <div class="item-line item-line_form"></div> -->
           </fieldset>
-          <!-- </div> -->
+
 
           <fieldset class="form__handlers">
-            <input type="submit" class="form__button" value="Сохранить" />
+            <button type="submit" class="form__button">Сохранить</button>
           </fieldset>
         </form>
       </div>

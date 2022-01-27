@@ -1,21 +1,22 @@
-.edit-button {
+.profile-info__edit-button {
   margin: 0;
   padding: 7px;
   width: 24px;
   height: 24px;
   background-color: #000;
   border: 1px solid #fff;
-  background-image: url(../../images/Pen.svg);
+  background-image: url(../../../images/Pen.svg);
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
-.edit-button:hover {
+.profile-info__edit-button:hover {
   opacity: 0.6;
 }
 
 @media screen and (max-width: 751px) {
-  .edit-button {
+  .profile-info__edit-button {
     position: absolute;
     top: 36px;
     right: 19px;
@@ -24,7 +25,7 @@
 }
 
 @media screen and (max-width: 501px) {
-  .edit-button {
+  .profile-info__edit-button {
     padding: 2.5px;
     top: 34px;
     width: 18px;
