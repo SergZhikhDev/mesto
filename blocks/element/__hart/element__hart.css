@@ -15,9 +15,9 @@
   opacity: 0.5;
 }
 
-.element__hart:active {
+/*.element__hart:active {
   background-image: url(../../../images/Hart.svg);
-}
+}*/
 
 @media screen and (max-width: 501px) {
   .element__hart {

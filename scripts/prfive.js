@@ -233,9 +233,15 @@ formAddElement.addEventListener("submit", renderNewItem);
 
 function addListeners(el) {
   el.querySelector(".element__basket").addEventListener("click", handleDelete);
+  el.querySelector(".element__hart").addEventListener("click", handlelike);
 }
 
 function handleDelete(event) {
   event.target.closest(".element").remove();
-  //resetForm();
 }
+
+function handlelike(event) {
+  event.target.classList.toggle("element__hart_active")
+}
+
+

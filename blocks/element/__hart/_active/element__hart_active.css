@@ -1,5 +1,15 @@
-/*.element__hart_active {
-  background-color: #000;
-  background-image: url(../../../images/Hart.svg);
+.element__hart_active {
+  margin: 30px 20px;
+  padding: 0;
+  width: 22px;
+  height: 19px;
+  background-color: #fff;
+  background-image: url(../../../../images/Hart.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+
+
 }
-*/
+
