@@ -10,6 +10,7 @@
   <body class="page">
     <header class="header">
       <img class="logo" src="./images/logo.svg" alt="логотип проекта Mesto" />
+      <hr class="header__line" />
     </header>
 
     <main class="content">
@@ -26,101 +27,63 @@
         </div>
         <button type="button" class="profile__add-button"></button>
       </section>
-
       <section class="places">
-        <ul class="elements">
-          <li class="element">
-            <img
-              class="element__image"
-              src="./images/kirill-pershin-1556355-unsplash.jpg"
-              alt="красота "
-            />
-            <h2 class="element__title">Домбай</h2>
-            <button type="button" class="element__hart"></button>
-          </li>
-          <li class="element">
-            <img
-              class="element__image"
-              src="./images/kirill-pershin-1088404-unsplash(1).jpg"
-              alt="красота "
-            />
-            <h2 class="element__title">Карачаево-Черкессия</h2>
-            <button type="button" class="element__hart"></button>
-          </li>
-          <li class="element">
-            <img
-              class="element__image"
-              src="./images/kirill-pershin-1404681-unsplash.jpg"
-              alt="красота "
-            />
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <button type="button" class="element__hart"></button>
-          </li>
-          <li class="element">
-            <img
-              class="element__image"
-              src="./images/жигули.jpg"
-              alt="красота "
-            />
-            <h2 class="element__title">Самарская лука</h2>
-            <button type="button" class="element__hart"></button>
-          </li>
-          <li class="element">
-            <img
-              class="element__image"
-              src="./images/жигули1.jpg"
-              alt="красота "
-            />
-            <h2 class="element__title">Жигулёвские горы</h2>
-            <button type="button" class="element__hart"></button>
-          </li>
-          <li class="element">
-            <img
-              class="element__image"
-              src="./images/самарскаялука.jpg"
-              alt="красота "
-            />
-            <h2 class="element__title">Жигули штольни</h2>
-            <button type="button" class="element__hart"></button>
-          </li>
-        </ul>
+        <ul class="elements" id="elements"></ul>
       </section>
+
+      <template class="item_template">
+        <li class="element">
+          <div class="element__image-container">
+            <img class="element__image" src="" alt="" />
+            <button type="button" class="element__basket"></button>
+          </div>
+          <h2 class="element__title"></h2>
+          <button type="button" class="element__hart"></button>
+        </li>
+      </template>
     </main>
 
     <footer class="footer">
       <p class="footer__copyright">© 2022.Mesto Russia</p>
     </footer>
-    <div class="popup">
-      <div class="popup__container">
-        <button type="button" class="popup__close"></button>
-        <h3 class="popup__heading">Редактировать профиль</h3>
-        <form name="editForm" class="form">
-          <fieldset class="form__input-container">
-            <input
-              type="text"
-              name="name"
-              class="form__input-area"
-              id="name"
-              placeholder="Введите имя"
-              value="Жак-Ив Кусто"
-            />
 
-            <input
-              type="text"
-              name="about-self"
-              class="form__input-area"
-              id="about-self"
-              placeholder="Введите род деятельности"
-              value="Исследователь океана"
-            />
-          </fieldset>
+    <ul class="forms"></ul>
+    <template class="popup_template">
+      <li class="popup">
+        <button type="button"  class="popup__close"></button>
+        <div class="popup__container">
+          <h3 class="popup__heading"></h3>
+          <form name="" class="form">
+            <fieldset class="form__input-container">
+              <input
+                type="text"
+                name=""
+                class="form__input-area form__input-area_fst"
+                id=""
+                placeholder=""
+                value=""
+              />
 
-          <fieldset class="form__handlers">
-            <button type="submit" class="form__button">Сохранить</button>
-          </fieldset>
-        </form>
-      </div>
-    </div>
-    <script src="./scripts/index.js"></script>
+              <input
+                type="text"
+                name=""
+                class="form__input-area form__input-area_snd"
+                id=""
+                placeholder=""
+                value=""
+              />
+            </fieldset>
+
+            <fieldset class="form__handlers">
+              <button type="submit" class="form__button"></button>
+            </fieldset>
+          </form>
+        </div>
+      </li>
+    </template>
+
+    <script src="./scripts/prfive.js"></script>
+    <!-- <script src="./scripts/index.js"></script> -->
+    <!-- <script src="./scripts/scriptmain.js"></script> -->
   </body>
 </html>
