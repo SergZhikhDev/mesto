@@ -33,12 +33,14 @@
 
       <template class="item_template">
         <li class="element">
-          <div class="element__image-container">
+          <div class="element__image-container " >
+
             <img class="element__image" src="" alt="" />
             <button type="button" class="element__basket"></button>
           </div>
           <h2 class="element__title"></h2>
-          <button type="button" class="element__hart "></button>
+          <button type="button" class="element__hart"></button>
+
         </li>
       </template>
     </main>
@@ -50,8 +52,8 @@
     <ul class="forms"></ul>
     <template class="popup_template">
       <li class="popup">
-        <button type="button"  class="popup__close"></button>
         <div class="popup__container">
+          <button type="button" class="popup__close"></button>
           <h3 class="popup__heading"></h3>
           <form name="" class="form">
             <fieldset class="form__input-container">
@@ -82,8 +84,14 @@
       </li>
     </template>
 
+    <section class="popup popup_poster" id="poster">
+      <div class="poster">
+        <img class="poster__image" src="" alt="" />
+        <p class="poster__name"></p>
+        <button type="button" class="popup__close" id="posterCloseButton"></button>
+      </div>
+    </section>
+
     <script src="./scripts/prfive.js"></script>
-    <!-- <script src="./scripts/index.js"></script> -->
-    <!-- <script src="./scripts/scriptmain.js"></script> -->
   </body>
 </html>

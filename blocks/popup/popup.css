@@ -1,4 +1,6 @@
 .popup {
+  margin: 0;
+  padding: 0;
   position: fixed;
   background: rgba(0, 0, 0, 0.5);
   display: none;
@@ -6,7 +8,7 @@
   align-items: center;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   z-index: 3;
 }

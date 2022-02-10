@@ -9,8 +9,8 @@
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
-  top: calc((50% - 16px) - 189px); /* (50% -16px) - это средняя точка крестика popup__close, 199px - это 330px/2 + 8px + 16px*/
-  left: calc((50% - 16px) + 239px); /* 239px - это 430/2 + 8px + 16px*/
+  top: -40px;
+  right: -40px;
   cursor: pointer;
 }
 
@@ -22,7 +22,9 @@
   .popup__close {
     width: 20px;
     height: 20px;
-    top: calc(50% - 199px);
-    left: calc(50%  + 121px);
+    top: -36px;
+    right: 0;
   }
 }
+
+
