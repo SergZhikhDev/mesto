@@ -20,27 +20,111 @@
           src="./images/Kusto.png"
           alt="фотография Жака-Ива Кусто"
         />
+
         <div class="profile-info">
           <h1 class="profile-info__name">Жак-Ив Кусто</h1>
+          <div class="popup profilePopup">
+            <div class="popup__container">
+              <button
+                type="button"
+                class="popup__close"
+                id="popupEditBlockCloseButton"
+              ></button>
+              <h3 class="popup__heading">Редактировать профиль</h3>
+              <form name="editForm" class="form">
+                <fieldset class="form__input-container">
+                  <input
+                    type="text"
+                    name="name"
+                    class="form__input-area form__input-area_fst"
+                    id="name"
+                    placeholder="Введите имя"
+                    value="Жак-Ив Кусто"
+                  />
+
+                  <input
+                    type="text"
+                    name="about-self"
+                    class="form__input-area form__input-area_snd"
+                    id="about-self"
+                    placeholder="Введите род занятий"
+                    value="Исследователь океана"
+                  />
+                </fieldset>
+
+                <fieldset class="form__handlers">
+                  <button type="submit" class="form__button">Сохранить</button>
+                </fieldset>
+              </form>
+            </div>
+          </div>
           <button type="button" class="profile-info__edit-button"></button>
+
           <p class="profile-info__about-self">Исследователь океана</p>
+        </div>
+
+        <div class="popup cardPopup">
+          <div class="popup__container">
+            <button
+              type="button"
+              class="popup__close"
+              id="popupAddBlockCloseButton"
+            ></button>
+            <h3 class="popup__heading">Новое место</h3>
+            <form name="addForm" class="form">
+              <fieldset class="form__input-container">
+                <input
+                  type="text"
+                  name="place"
+                  class="form__input-area form__input-area_fst"
+                  id="place"
+                  placeholder="Название"
+                  value=""
+                />
+
+                <input
+                  type="url"
+                  name="placeLink"
+                  class="form__input-area form__input-area_snd"
+                  id="placeLink"
+                  placeholder="Введите ссылку"
+                  value=""
+                />
+              </fieldset>
+
+              <fieldset class="form__handlers">
+                <button type="submit" class="form__button">Создать</button>
+              </fieldset>
+            </form>
+          </div>
         </div>
         <button type="button" class="profile__add-button"></button>
       </section>
-      <section class="places">
+
+      <sectiona class="places">
         <ul class="elements" id="elements"></ul>
-      </section>
+      </sectiona>
 
       <template class="item_template">
         <li class="element">
-          <div class="element__image-container " >
+          <div class="element__image-container">
+            <div class="popup posterPopup" id="poster">
+              <div class="poster">
+                <img class="poster__image" src="" alt="" />
+                <p class="poster__name"></p>
+                <button
+                  type="button"
+                  class="popup__close"
+                  id="posterCloseButton"
+                ></button>
+              </div>
+            </div>
 
             <img class="element__image" />
             <button type="button" class="element__basket"></button>
           </div>
           <h2 class="element__title"></h2>
           <button type="button" class="element__hart"></button>
-
         </li>
       </template>
     </main>
@@ -49,49 +133,7 @@
       <p class="footer__copyright">© 2022.Mesto Russia</p>
     </footer>
 
-    <ul class="forms"></ul>
-    <template class="popup_template">
-      <li class="popup">
-        <div class="popup__container">
-          <button type="button" class="popup__close"></button>
-          <h3 class="popup__heading"></h3>
-          <form name="" class="form">
-            <fieldset class="form__input-container">
-              <input
-                type="text"
-                name=""
-                class="form__input-area form__input-area_fst"
-                id=""
-                placeholder=""
-                value=""
-              />
 
-              <input
-                type=""
-                name=""
-                class="form__input-area form__input-area_snd"
-                id=""
-                placeholder=""
-                value=""
-              />
-            </fieldset>
-
-            <fieldset class="form__handlers">
-              <button type="submit" class="form__button"></button>
-            </fieldset>
-          </form>
-        </div>
-      </li>
-    </template>
-
-    <section class="popup popup_poster" id="poster">
-      <div class="poster">
-        <img class="poster__image" src="" alt="" />
-        <p class="poster__name"></p>
-        <button type="button" class="popup__close" id="posterCloseButton"></button>
-      </div>
-    </section>
-
-    <script src="./scripts/prfive.js"></script>
+    <script src="./scripts/exercise.js"></script>
   </body>
 </html>

@@ -9,15 +9,14 @@
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
+  position: absolute;
+  right:0;
+  bottom: 0;
 }
 
 .element__hart:hover {
   opacity: 0.5;
 }
-
-/*.element__hart:active {
-  background-image: url(../../../images/Hart.svg);
-}*/
 
 @media screen and (max-width: 501px) {
   .element__hart {

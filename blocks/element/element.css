@@ -10,6 +10,7 @@
   row-gap: 0;
   column-gap: 0;
   list-style: none;
+  position: relative;
 }
 
 @media screen and (max-width: 751px) {
