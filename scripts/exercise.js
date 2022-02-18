@@ -25,111 +25,139 @@ const initialCards = [
     link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
   },
 ];
-const listCards = document.querySelector(".elements"); // список карточек
-const templateItem = document.querySelector(".item_template").content; // html разметка карточки
-const openPopupEditButton = document.querySelector(".profile-info__edit-button"); // кнопка открытия формы №1
-const openPopupAddButton = document.querySelector(".profile__add-button"); // кнопка открытия формы №2
-const placeNameInput = document.querySelector("#place");
-const placeLinkInput = document.querySelector("#placeLink");
-const placeLinkAdded = document.querySelectorAll(".element__image");
-const cardTemplate = document.querySelector(".item_template").content;
-const newPoster = cardTemplate.querySelector(".element").cloneNode(true);
-const profilePopup = document.querySelector(".profilePopup");
-const cardPopup = document.querySelector(".cardPopup");
-const formEditElement = document.querySelector(".profilePopup");
-const formAddElement = document.querySelector(".cardPopup");
-const nameInput = document.querySelector("#name");
-const jobInput = document.querySelector("#about-self");
-const profInfoName = document.querySelector(".profile-info__name");
-const profInfoAboutSelf = document.querySelector(".profile-info__about-self");
+
+const listCards = document.querySelector(".elements"); // список карточек изнаяально пустой, наполняется изначально из массива
+const templateItem = document.querySelector(".item_template").content; // шаблон html разметка карточки
+const cardImage = document.querySelectorAll(".element__image"); //изображение карточки
+const posterImage = document.querySelector(".poster__image");
+const posterTitle = document.querySelector(".poster__name");
+const placeNameInput = document.querySelector("#place"); //первая полоса ввода формы Новое место(Add)
+const placeLinkInput = document.querySelector("#placeLink"); //вторая полоса ввода формы Новое место(Add)
+const nameInput = document.querySelector(".form__input-area_fst"); //первая полоса ввода форм(Edit, Add)
+const jobInput = document.querySelector(".form__input-area_snd"); //вторая полоса ввода форм(Edit, Add)
+const profInfoName = document.querySelector(".profile-info__name"); //
+const profInfoAboutSelf = document.querySelector(".profile-info__about-self"); //
+const profilePopup = document.querySelector(".profilePopup"); // попап блока редактировать профиль
+const cardPopup = document.querySelector(".cardPopup"); //попап блока добавить карточку
+const posterPopup = document.querySelector(".posterPopup"); //попап постера (большой фотографии)
+const saveEditPopupBtn = document.querySelector(".form__button_edit-block"); //кнопка сохранения формы редактировать профиль
+const saveAddPopupBtn = document.querySelector(".form__button_add-block"); //кнопка сохранения формы добавить карточку
+const openPopupEditButton = document.querySelector(
+  ".profile-info__edit-button"
+); //кнопка открытия формы редактировать профиль
+const openPopupAddButton = document.querySelector(".profile__add-button"); //кнопка открытия формы добавить карточку
+const popupEditBlockCloseButton = document.querySelector(
+  ".popup__close_edit-block"
+); //кнопка закрытия формы редактировать профиль
+const popupAddBlockCloseButton = document.querySelector(
+  ".popup__close_add-block"
+); //кнопка закрытия формы добавить карточку
+const popupPosterCloseButton = document.querySelector(".popup__close_poster"); // кнопка закрытия попапа
 
 //функция перебирает значения карточек "из коробки"
 function render() {
   initialCards.forEach(renderItem);
 }
+render();
 
 //ф. создает новую карточку со значениями "из коробки"
 function renderItem(item) {
-  const newItemFromBox = templateItem.cloneNode(true);
-  //const newPosterItem = templatePosters.cloneNode(true);
+  const cardElement = templateItem.cloneNode(true);
 
-  newItemFromBox.querySelector(".element__image").setAttribute("src", item.link); //присвоение атрибута
-  newItemFromBox.querySelector(".element__image").setAttribute("alt", "на фотографии " + item.name); // склеивает фразу "на фотографии + имя карточки"
-  newItemFromBox.querySelector(".element__title").innerText = item.name; // замена текста
-
-  newItemFromBox.querySelector(".poster__image").setAttribute("src", item.link); //присвоение атрибута
-  newItemFromBox.querySelector(".poster__image").setAttribute("alt", "на фотографии " + item.name); // склеивает фразу "на фотографии + имя карточки"
-  newItemFromBox.querySelector(".poster__name").innerText = item.name; // замена текста
-
-  addListeners(newItemFromBox); // добавляет слушателя новому элементу
-  listCards.append(newItemFromBox); // добавляет карточку в конец списка
-}
-render();
-
-function createCard(evt) {
-  const newItem = templateItem.cloneNode(true);
-  evt.preventDefault();
-
-  newItem.querySelector(".element__image").setAttribute("src", placeLinkInput.value); //присвоение атрибута
-  newItem.querySelector(".element__image").setAttribute("alt", "на фотографии " + placeLinkAdded.alt); // склеивает фразу "на фотографии + имя карточки"
-  newItem.querySelector(".element__title").textContent = placeNameInput.value; // замена текста*/
-
-  newItem.querySelector(".poster__image").setAttribute("src", placeLinkInput.value); //присвоение атрибута
-  newItem.querySelector(".poster__image").setAttribute("alt", "на фотографии " + placeLinkAdded.alt); // склеивает фразу "на фотографии + имя карточки"
-  newItem.querySelector(".poster__name").textContent = placeNameInput.value;
-
-  addListeners(newItem); // добавляет слушателя новому элементу
-  listCards.prepend(newItem); // добавляет новую карточку на первое место
-  if (elements.children.length > 6) {
-    // без этого количество карточек может быть любым
-    deleteLastCard();
-  }
-  closePopup();
-}
-// функция удаляет последн карточку
-function deleteLastCard() {
-  const elements = document.querySelector(".elements");
-  elements.removeChild(elements.children[6]);
+  cardElement.querySelector(".element__image").setAttribute("src", item.link); //присвоение атрибута
+  cardElement.querySelector(".element__image").setAttribute("alt", "на фотографии " + item.name); // склеивает фразу "на фотографии + имя карточки"
+  cardElement.querySelector(".element__title").innerText = item.name; // замена текста
+  addListeners(cardElement); // добавляет слушателя новому элементу
+  addCardAppend(cardElement); // добавляет карточку в конец списка
 }
 
+function createCard(event) {
+  const cardElement = templateItem.cloneNode(true);
+  event.preventDefault();
 
-function openPopup(event) {
-  event.target.previousElementSibling.classList.add("popup_opened");
+  cardElement
+    .querySelector(".element__image")
+    .setAttribute("src", placeLinkInput.value); //присвоение атрибута
+  cardElement
+    .querySelector(".element__image")
+    .setAttribute("alt", "на фотографии " + placeLinkInput.alt); // склеивает фразу "на фотографии + имя карточки"
+  cardElement.querySelector(".element__title").textContent =
+    placeNameInput.value; // замена текста
+
+  addListeners(cardElement);
+  closePopup(cardPopup);
+  addCardPrepend(cardElement);
+  return cardElement;
 }
 
-function closePopup() {
-  event.target.closest(".popup").classList.remove("popup_opened");
-  profilePopup.classList.remove("popup_opened");
-  cardPopup.classList.remove("popup_opened");
+//Готовые карточки добавляем в конец списка
+function addCardAppend(cardElement) {
+  listCards.append(cardElement);
+}
 
+//Готовые карточки добавляем в начало списка
+function addCardPrepend(cardElement) {
+  listCards.prepend(cardElement);
 }
 
 // функция сохраняет данные первой формы
-function saveFormSubmit(evt) {
-  evt.preventDefault();
+function handleProfileFormSubmit(event) {
+  event.preventDefault();
   profInfoName.textContent = nameInput.value;
   profInfoAboutSelf.textContent = jobInput.value;
-  closePopup();
+  closePopup(profilePopup);
+}
+
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
+  reset();
+}
+
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
+}
+
+//Постер попап
+function openImage(event) {
+  posterImage.src = event.target.src;
+  posterImage.alt = event.target.alt;
+  posterTitle.innerText = event.target.alt;
+
+  openPopup(posterPopup);
+}
+
+// Сброс предидущих значение полей ввода форм при новом открытии
+function reset() {
+  const val = document.querySelectorAll(".form__input-area");
+  val.forEach(resetData);
+}
+
+function resetData(item) {
+  item.value = "";
 }
 
 // слушатель запускает ф-ию открыть первую формы по клику на edit-buton на add-buton
-openPopupEditButton.addEventListener("click", openPopup);
-openPopupAddButton.addEventListener("click", openPopup);
+openPopupEditButton.addEventListener("click", () => openPopup(profilePopup));
+openPopupAddButton.addEventListener("click", () => openPopup(cardPopup));
 
 //слушатель запускает ф-ию закрыть  форму по клику на close-buton
-popupEditBlockCloseButton.addEventListener("click", closePopup);
-popupAddBlockCloseButton.addEventListener("click", closePopup);
+popupEditBlockCloseButton.addEventListener("click", () =>
+  closePopup(profilePopup)
+);
+popupAddBlockCloseButton.addEventListener("click", () => closePopup(cardPopup));
+popupPosterCloseButton.addEventListener("click", () => closePopup(posterPopup));
 
 //слушатель на кнопку "submit"
-formEditElement.addEventListener("submit", saveFormSubmit);
-formAddElement.addEventListener("submit", createCard);
+saveEditPopupBtn.addEventListener("click", handleProfileFormSubmit); // ЕСЛИ ВМЕСТО 'CLICK' ПОСТАВИТЬ'SUBMIT' СТРАНИЦА ПЕРЕЗАГРУЖАЕТСЯ
+saveAddPopupBtn.addEventListener("click", createCard);
 
 // функция добавляет слушатель на элементы карточки
 function addListeners(el) {
   el.querySelector(".element__basket").addEventListener("click", deleteCard);
   el.querySelector(".element__hart").addEventListener("click", likeCard);
-  el.querySelector(".element__image").addEventListener("click", openPopup);
-  el.querySelector(".popup__close").addEventListener("click", closePopup);
+  el.querySelector(".openPopupBtn__poster").addEventListener("click", () =>
+    openImage(event)
+  );
 }
 
 // функция удаляет карточку
