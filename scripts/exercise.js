@@ -89,7 +89,7 @@ function handleProfileFormSubmit(event) {
   event.preventDefault();
   profInfoName.textContent = nameInput.value;
   profInfoAboutSelf.textContent = jobInput.value;
-  reset();
+ // reset();
   closePopup(profilePopup);
 }
 
