@@ -39,8 +39,8 @@ const profInfoAboutSelf = document.querySelector(".profile-info__about-self"); /
 const profilePopup = document.querySelector(".profilePopup"); // попап блока редактировать профиль
 const cardPopup = document.querySelector(".cardPopup"); //попап блока добавить карточку
 const posterPopup = document.querySelector(".posterPopup"); //попап постера (большой фотографии)
-const formEdit = document.querySelector(".form__edit-block"); //кнопка сохранения формы редактировать профиль
-const formAdd = document.querySelector(".form__add-block"); //кнопка сохранения формы добавить карточку
+const formEdit = document.querySelector(".form_edit-block"); //кнопка сохранения формы редактировать профиль
+const formAdd = document.querySelector(".form_add-block"); //кнопка сохранения формы добавить карточку
 const openPopupEditButton = document.querySelector(
   ".profile-info__edit-button"
 ); //кнопка открытия формы редактировать профиль
@@ -89,6 +89,7 @@ function handleProfileFormSubmit(event) {
   event.preventDefault();
   profInfoName.textContent = nameInput.value;
   profInfoAboutSelf.textContent = jobInput.value;
+  reset();
   closePopup(profilePopup);
 }
 
@@ -96,18 +97,20 @@ function handleProfileFormSubmit(event) {
 function handleAddFormSubmit(event) {
   event.preventDefault();
 
+
   const cardData = {
     name: placeNameInput.value,
     link: placeLinkInput.value,
   };
 
   addCardPrepend(cardData);
+  reset();
   closePopup(cardPopup);
 }
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  reset();
+  //reset();
 }
 
 function closePopup(popup) {
