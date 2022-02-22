@@ -41,8 +41,7 @@ const cardPopup = document.querySelector(".cardPopup"); //попап блока 
 const posterPopup = document.querySelector(".posterPopup"); //попап постера (большой фотографии)
 const formEdit = document.querySelector(".form_edit-block"); //кнопка сохранения формы редактировать профиль
 const formAdd = document.querySelector(".form_add-block"); //кнопка сохранения формы добавить карточку
-const openPopupEditButton = document.querySelector(
-  ".profile-info__edit-button"
+const openPopupEditButton = document.querySelector(".profile-info__edit-button"
 ); //кнопка открытия формы редактировать профиль
 const openPopupAddButton = document.querySelector(".profile__add-button"); //кнопка открытия формы добавить карточку
 const popupEditBlockCloseButton = document.querySelector(
@@ -137,7 +136,17 @@ function resetData(item) {
 }
 
 // слушатель запускает ф-ию открыть первую формы по клику на edit-buton на add-buton
-openPopupEditButton.addEventListener("click", () => openPopup(profilePopup));
+openPopupEditButton.addEventListener("click", () => {
+//***************Либо так *************/
+  //nameInput.value=profInfoName.textContent // так  в инпутах при открытии формы будет последнне сохранившееся значение
+//  jobInput.value=profInfoAboutSelf.textContent
+//***************Либо так *************/
+  nameInput.value="Жак-Ив Кусто" // так  в инпутах при открытии формы будет всегда "Жак-Ив Кусто" и "Исследователь океана"
+jobInput.value="Исследователь океана"
+// возможно проблему решит валидация формы
+  openPopup(profilePopup)
+  });
+
 openPopupAddButton.addEventListener("click", () => openPopup(cardPopup));
 
 //слушатель запускает ф-ию закрыть  форму по клику на close-buton
