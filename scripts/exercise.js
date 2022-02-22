@@ -138,11 +138,11 @@ function resetData(item) {
 // слушатель запускает ф-ию открыть первую формы по клику на edit-buton на add-buton
 openPopupEditButton.addEventListener("click", () => {
 //***************Либо так *************/
-  //nameInput.value=profInfoName.textContent // так  в инпутах при открытии формы будет последнне сохранившееся значение
-//  jobInput.value=profInfoAboutSelf.textContent
+  nameInput.value=profInfoName.textContent // так  в инпутах при открытии формы будет последнне сохранившееся значение
+  jobInput.value=profInfoAboutSelf.textContent
 //***************Либо так *************/
-  nameInput.value="Жак-Ив Кусто" // так  в инпутах при открытии формы будет всегда "Жак-Ив Кусто" и "Исследователь океана"
-jobInput.value="Исследователь океана"
+//nameInput.value="Жак-Ив Кусто" // так  в инпутах при открытии формы будет всегда "Жак-Ив Кусто" и "Исследователь океана"
+//jobInput.value="Исследователь океана"
 // возможно проблему решит валидация формы
   openPopup(profilePopup)
   });
