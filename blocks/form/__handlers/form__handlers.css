@@ -1,15 +1,15 @@
 .form__handlers {
-  margin: 18px auto 37px;
+  margin: 47px auto 37px;
   padding: 0;
   width: 358px;
-  /*height: 50px;*/
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap;
   flex-direction: row;
   border: none;
-  background: #000;
+  /*background: #000;*/
 }
 
 .form__handlers:hover {

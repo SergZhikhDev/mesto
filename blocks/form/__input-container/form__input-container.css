@@ -8,5 +8,6 @@
 @media screen and (max-width: 501px) {
   .form__input-container {
     width: 238px;
+    height: 4;
   }
 }

@@ -1,6 +1,6 @@
 .form__input-area {
-  margin: 0 0 29px;
-  padding: 0 0 13px;
+  margin:0;
+  padding: 13px 0;
   width: 100%;
   max-height: 14px;
   font-family: inherit;
@@ -11,4 +11,12 @@
   color: #000000;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.popup__input:nth-of-type(1) {
+  margin: 48px 0 0 0;
+}
+
+.popup__input:nth-of-type(2) {
+  margin: 0 0 0 0;
 }

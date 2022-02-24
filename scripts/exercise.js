@@ -41,15 +41,11 @@ const cardPopup = document.querySelector(".cardPopup"); //попап блока 
 const posterPopup = document.querySelector(".posterPopup"); //попап постера (большой фотографии)
 const formEdit = document.querySelector(".form_edit-block"); //кнопка сохранения формы редактировать профиль
 const formAdd = document.querySelector(".form_add-block"); //кнопка сохранения формы добавить карточку
-const openPopupEditButton = document.querySelector(".profile-info__edit-button"
-); //кнопка открытия формы редактировать профиль
+const openPopupEditButton = document.querySelector(".profile-info__edit-button"); //кнопка открытия формы редактировать профиль
 const openPopupAddButton = document.querySelector(".profile__add-button"); //кнопка открытия формы добавить карточку
-const popupEditBlockCloseButton = document.querySelector(
-  ".popup__close_edit-block"
-); //кнопка закрытия формы редактировать профиль
-const popupAddBlockCloseButton = document.querySelector(
-  ".popup__close_add-block"
-); //кнопка закрытия формы добавить карточку
+const popupCloseButtons = document.querySelectorAll('.popup__close')
+const popupEditBlockCloseButton = document.querySelector(".popup__close_edit-block"); //кнопка закрытия формы редактировать профиль
+const popupAddBlockCloseButton = document.querySelector(".popup__close_add-block"); //кнопка закрытия формы добавить карточку
 const popupPosterCloseButton = document.querySelector(".popup__close_poster"); // кнопка закрытия попапа
 
 //функция перебирает значения карточек "из коробки"
@@ -88,14 +84,13 @@ function handleProfileFormSubmit(event) {
   event.preventDefault();
   profInfoName.textContent = nameInput.value;
   profInfoAboutSelf.textContent = jobInput.value;
- // reset();
+  // reset();
   closePopup(profilePopup);
 }
 
 // функция сохраняет данные второй формы
 function handleAddFormSubmit(event) {
   event.preventDefault();
-
 
   const cardData = {
     name: placeNameInput.value,
@@ -109,11 +104,12 @@ function handleAddFormSubmit(event) {
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  //reset();
+  document.addEventListener('keydown', closeWithEscape);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener('keydown', closeWithEscape);
 }
 
 //Постер попап
@@ -137,15 +133,15 @@ function resetData(item) {
 
 // слушатель запускает ф-ию открыть первую формы по клику на edit-buton на add-buton
 openPopupEditButton.addEventListener("click", () => {
-//***************Либо так *************/
-  //nameInput.value=profInfoName.textContent // так  в инпутах при открытии формы будет последнне сохранившееся значение
-//  jobInput.value=profInfoAboutSelf.textContent
-//***************Либо так *************/
-  nameInput.value="Жак-Ив Кусто" // так  в инпутах при открытии формы будет всегда "Жак-Ив Кусто" и "Исследователь океана"
-jobInput.value="Исследователь океана"
-// возможно проблему решит валидация формы
-  openPopup(profilePopup)
-  });
+  //***************Либо так *************/
+  nameInput.value = profInfoName.textContent; // так  в инпутах при открытии формы будет последнне сохранившееся значение
+  jobInput.value = profInfoAboutSelf.textContent;//  с другой стороны если пользователь ввёл некорректные данные и вышел с помощью ESC, они же и отобразятся, тогда уж лучше второй вариант
+  //***************Либо так *************/
+  // nameInput.value="Жак-Ив Кусто" // так  в инпутах при открытии формы будет всегда "Жак-Ив Кусто" и "Исследователь океана"
+  //jobInput.value="Исследователь океана"
+  // возможно проблему решит валидация формы
+  openPopup(profilePopup);
+});
 
 openPopupAddButton.addEventListener("click", () => openPopup(cardPopup));
 
@@ -179,3 +175,28 @@ function deleteCard(event) {
 function likeCard(event) {
   event.target.classList.toggle("element__hart_active");
 }
+
+
+
+popupCloseButtons.forEach(button => {
+  const popup = button.closest('.popup')
+
+  button.addEventListener('click', () => closePopup(popup))
+
+  popup.addEventListener('mousedown', (event) => {
+    if (event.target === event.currentTarget){
+      closePopup(popup)
+      reset()//удаляет некорректно введенные данные при входе с помощью нажатия на оверлэй но оставляет предупреждение
+    }
+  })
+});
+
+const closeWithEscape = (event) => {
+  if (event.key === 'Escape') {
+   const openedPopup = document.querySelector('.popup_opened')
+   closePopup(openedPopup)
+   reset()//удаляет некорректно введенные данные при входе с помощью нажатия на ESC но оставляет предупреждение
+  }
+}
+
+
