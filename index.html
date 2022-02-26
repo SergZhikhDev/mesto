@@ -26,11 +26,11 @@
             type="button"
             class="openPopupBtn profile-info__edit-button"
           ></button
-          ><!--Кнопка открывает попап-->
+          >
           <p class="profile-info__about-self">Исследователь океана</p>
         </div>
         <button type="button" class="openPopupBtn profile__add-button"></button
-        ><!--Кнопка открывает попап-->
+        >
       </section>
 
       <sectiona class="places">
@@ -41,7 +41,7 @@
         <li class="element">
           <div class="element__image-container">
             <button type="button" class="openPopupBtn openPopupBtn__poster">
-              <img class="element__image" /><!--Кнопка открывает попап-->
+              <img class="element__image" />
             </button>
             <button type="button" class="element__basket"></button>
           </div>
@@ -55,7 +55,7 @@
       <p class="footer__copyright">© 2022.Mesto Russia</p>
     </footer>
 
-    <div class="popup profilePopup">
+    <section class="popup profilePopup popupForms" id="popup-profile">
       <div class="popup__container">
         <button
           type="reset"
@@ -67,7 +67,7 @@
             <input
               type="text"
               name="name"
-              class="form__input-area form__input-area_fst"
+              class="form__input-area form__input-area_name"
               id="name"
               placeholder="Введите имя"
               value="Жак-Ив Кусто"
@@ -76,12 +76,12 @@
               required
             />
 
-            <span class="popup__error "></span>
+            <span class="popup__error" id="error-name"></span>
 
             <input
               type="text"
               name="about-self"
-              class="form__input-area form__input-area_snd"
+              class="form__input-area form__input-area_about-self"
               id="about-self"
               placeholder="Введите род занятий"
               value="Исследователь океана"
@@ -90,19 +90,23 @@
               required
             />
 
-            <span class="popup__error "></span>
+            <span class="popup__error" id="error-about-self"></span>
           </fieldset>
 
           <fieldset class="form__handlers">
-            <button type="submit" class="form__button form__button_edit-block">
+            <button
+              type="submit"
+              name="subBtn"
+              class="form__button form__button_edit-block"
+            >
               Сохранить
             </button>
           </fieldset>
         </form>
       </div>
-    </div>
+    </section>
 
-    <div class="popup cardPopup">
+    <section class="popup cardPopup popupForms" id="popup-cardPopup">
       <div class="popup__container">
         <button
           type="reset"
@@ -114,7 +118,7 @@
             <input
               type="text"
               name="place"
-              class="form__input-area form__input-area_fst"
+              class="form__input-area"
               id="place"
               placeholder="Название"
               value=""
@@ -122,30 +126,34 @@
               maxlength="30"
               required
             />
-            <span class="popup__error "></span>
+            <span class="popup__error" id="error-place"></span>
 
             <input
               type="url"
               name="placeLink"
-              class="form__input-area form__input-area_snd"
+              class="form__input-area"
               id="placeLink"
               placeholder="Введите ссылку"
               value=""
               required
             />
-            <span class="popup__error "></span>
+            <span class="popup__error" id="error-placeLink"></span>
           </fieldset>
 
           <fieldset class="form__handlers">
-            <button type="submit" class="form__button form__button_add-block">
+            <button
+              type="submit"
+              name="subBtn"
+              class="form__button form__button_add-block"
+            >
               Создать
             </button>
           </fieldset>
         </form>
       </div>
-    </div>
+    </section>
 
-    <div class="popup posterPopup">
+    <div class="popup popup_poster">
       <div class="poster">
         <img class="poster__image" src="." alt="." />
         <h2 class="poster__name"></h2>
@@ -153,6 +161,6 @@
       </div>
     </div>
     <script src="./scripts/validate.js"></script>
-    <script src="./scripts/exercise.js"></script>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>

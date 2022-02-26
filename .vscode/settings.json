@@ -2,5 +2,6 @@
   "editor.linkedEditing": true,
   "cSpell.words": [
     "закрытия"
-  ]
+  ],
+  "liveServer.settings.port": 5501
 }
