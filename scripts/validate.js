@@ -5,11 +5,8 @@ const enableValidation = (settings) => {
       event.preventDefault();
     });
   });
-  const fieldsetList = Array.from(
-    document.querySelectorAll(settings.sectionSelector)
-  );
-  fieldsetList.forEach((fieldSet) => {
-    setEventListeners(settings, fieldSet);
+  formsList.forEach((formsList) => {
+    setEventListeners(formsList, settings)
   });
 };
 const setEventListeners = (settings, formElement) => {
@@ -20,7 +17,7 @@ const setEventListeners = (settings, formElement) => {
     settings.submitButtonSelector
   );
 
-  toggleButtonState(settings, inputList, buttonElement);
+ // toggleButtonState(settings, inputList, buttonElement);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(settings, formElement, inputElement);
@@ -64,9 +61,11 @@ function hasInvalidInput(inputList) {
 function toggleButtonState(settings, inputList, buttonElement) {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(settings.inactiveButtonClass);
+   // buttonElement.classList.remove('form__button')
     buttonElement.setAttribute("disabled", '');
   } else {
     buttonElement.classList.remove(settings.inactiveButtonClass);
+   // buttonElement.classList.add('form__button')
     buttonElement.removeAttribute("disabled");
   }
 }

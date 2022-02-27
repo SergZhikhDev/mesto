@@ -15,13 +15,13 @@
   opacity: 0.2;
 }
 
-.form__button_disabled:hover {
-  opacity: 0.2;
-  transition: opacity 0.3s linear;
-}
+
+
 
 @media screen and (max-width: 501px) {
   .form__button_disabled {
+    width: 238px;
+  height: 46px;
     margin-bottom: 14px;
     font-size: 14px;
     line-height: 1.21;

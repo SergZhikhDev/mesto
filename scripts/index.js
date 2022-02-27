@@ -30,6 +30,7 @@ const posterImage = document.querySelector(".poster__image");
 const posterTitle = document.querySelector(".poster__name");
 const placeNameInput = document.querySelector("#place"); //первая полоса ввода формы Новое место(Add)
 const placeLinkInput = document.querySelector("#placeLink"); //вторая полоса ввода формы Новое место(Add)
+const formInput = document.querySelectorAll(".form__input-area");
 const nameInput = document.querySelector(".form__input-area_name"); //первая полоса ввода форм(Edit)
 const jobInput = document.querySelector(".form__input-area_about-self"); //вторая полоса ввода форм(Edit)
 const profInfoName = document.querySelector(".profile-info__name"); //
@@ -51,6 +52,7 @@ const popupAddBlockCloseButton = document.querySelector(
   ".popup__close_add-block"
 ); //кнопка закрытия формы добавить карточку
 const popupPosterCloseButton = document.querySelector(".popup__close_poster"); // кнопка закрытия попапа
+
 
 //функция перебирает значения карточек "из коробки"
 function render() {
@@ -89,9 +91,6 @@ function handleProfileFormSubmit(event) {
 
   profInfoName.textContent = nameInput.value;
   profInfoAboutSelf.textContent = jobInput.value;
-
-  document.addEventListener("keydown", closeWithEscape);
-
   closePopup(profilePopup);
 }
 
@@ -103,31 +102,16 @@ function handleAddFormSubmit(event) {
     name: placeNameInput.value,
     link: placeLinkInput.value,
   };
-
-  document.addEventListener("keydown", closeWithEscape);
   addCardPrepend(cardData);
   closePopup(cardPopup);
 }
 
-function reset() {
-  const subAddBtn = document.querySelector(".form__button_add-block");
-  subAddBtn.classList.add("form__button_disabled");
-  subAddBtn.setAttribute("disabled", "");
 
-  const subEditBtn = document.querySelector(".form__button_edit-block");
-  subEditBtn.classList.remove("form__button_disabled");
-  subEditBtn.removeAttribute("disabled", "");
-
-  const val = document.querySelectorAll(".popup__error");
-  val.forEach((item) => {
-    item.textContent = "";
-  });
-}
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", closeWithEscape);
-  reset();
+
 }
 
 function closePopup(popup) {
@@ -148,13 +132,14 @@ function openImage(event) {
 openPopupEditButton.addEventListener("click", () => {
   nameInput.value = profInfoName.textContent;
   jobInput.value = profInfoAboutSelf.textContent;
-
+ reset();
   openPopup(profilePopup);
 });
 
 openPopupAddButton.addEventListener("click", () => {
   placeNameInput.value = "";
   placeLinkInput.value = "";
+  reset();
 
   openPopup(cardPopup);
 });
@@ -202,3 +187,4 @@ const closeWithEscape = (event) => {
     closePopup(openedPopup);
   }
 };
+console.log(hasInvalidInput)

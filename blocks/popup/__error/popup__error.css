@@ -1,9 +1,9 @@
 .popup__error {
   display: block;
   width: 358px;
-  min-height: 12px;
+  height: 28px;
   font-size: 12px;
-  line-height: 15px;
+  line-height: 1.25;
   color: #FF0000;
   text-align: left;
   align-self: flex-start;
