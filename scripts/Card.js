@@ -1,11 +1,12 @@
+import {openPopup} from'./index.js';
 
 
-
-export default class Card {
+export class Card {
   constructor(data) {
     this._name = data.name;
     this._link = data.link;
     this._alt = "на фотографии " + data.name;
+
   }
 
   _getTemplate() {
@@ -17,20 +18,6 @@ export default class Card {
 
     // вернём DOM-элемент карточки
     return cardElement;
-  }
-
-  generateCard() {
-    // Запишем разметку в приватное поле _element.
-    // Так у других элементов появится доступ к ней.
-    this._element = this._getTemplate();
-    this._setEventListeners();
-    // Добавим данные
-    this._element.querySelector(".element__image").src = this._link;
-    this._element.querySelector(".element__image").alt = this._alt;
-    this._element.querySelector(".element__title").textContent = this._name;
-
-    // Вернём элемент наружу
-    return this._element;
   }
   _setEventListeners() {
     this._element
@@ -64,21 +51,27 @@ export default class Card {
   }
 
   _openImage() {
+    const posterImage = document.querySelector(".poster__image");
+    const posterTitle = document.querySelector(".poster__name");
+    const posterPopup = document.querySelector(".popup_poster");
 
-
-    this._element
-      .querySelector(".poster__image").setAttribute('src',this.link);
-   // posterImage.src = this._link;
-   this._element
-   .querySelector(".poster__image").setAttribute('alt',this._name);
-    // posterImage.alt = this._alt;
-    this._element
-    .querySelector(".poster__image").textContent = this._name;
-    // posterTitle.textContent = this._name;
-
+    posterImage.src = this._link;
+    posterImage.alt = this._alt;
+    posterTitle.textContent = this._name;
 
     openPopup(posterPopup);
   }
+  generateCard() {
+
+    this._element = this._getTemplate();
+    this._setEventListeners();
+    this._elementImage = this._element.querySelector('.element__image')
+
+    this._elementImage.src = this._link;
+    this._elementImage.alt = this._alt;
+    this._element.querySelector(".element__title").textContent = this._name;
+
+
+    return this._element;
+  }
 }
-
-
