@@ -51,15 +51,17 @@
 
 
 @import url("../blocks/form/form.css");
+@import url("../blocks/form/__input-container/form__input-container.css");
 @import url("../blocks/popup/__heading/popup__heading.css");
 @import url("../blocks/form/__input-area/form__input-area.css");
-@import url("../blocks/form/__input-container/form__input-container.css");
 @import url("../blocks/form/__input-area/_error/form__input-area_error.css");
+@import url("../blocks/form/__handlers/form__handlers.css");
+@import url("../blocks/form/__button/form__button.css");
 @import url("../blocks/form/__button/_disabled/form__button_disabled.css");
 
 
-@import url("../blocks/form/__handlers/form__handlers.css");
-@import url("../blocks/form/__button/form__button.css");
+
+
 
 @import url("../blocks/poster/poster.css");
 @import url("../blocks/poster/__name/poster__name.css");
