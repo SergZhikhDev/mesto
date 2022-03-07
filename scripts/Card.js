@@ -1,12 +1,12 @@
-import {openPopup} from'./index.js';
+//import {openPopup} from'./index.js';
 
 
 export class Card {
-  constructor(data) {
+  constructor(data,openImage) {
     this._name = data.name;
     this._link = data.link;
     this._alt = "на фотографии " + data.name;
-
+    this._openImage = openImage;
   }
 
   _getTemplate() {
@@ -30,11 +30,18 @@ export class Card {
       .addEventListener("click", () => {
         this._deleteCard();
       });
-    this._element
-      .querySelector(".openPopupBtn__poster")
-      .addEventListener("click", () => {
-        this._openImage();
-      });
+    // this._element
+    //   .querySelector(".openPopupBtn__poster")
+    //   .addEventListener("click", () => {
+    //     this._openImage();
+    //   });
+      this._element
+      .querySelector(".openPopupBtn__poster").addEventListener('click', () => {
+        this._openImage(this._name, this._link)})
+
+
+
+
   }
 
   _likeCard() {
@@ -50,7 +57,7 @@ export class Card {
       .remove();
   }
 
-  _openImage() {
+  /*_openImage() {
     const posterImage = document.querySelector(".poster__image");
     const posterTitle = document.querySelector(".poster__name");
     const posterPopup = document.querySelector(".popup_poster");
@@ -60,7 +67,12 @@ export class Card {
     posterTitle.textContent = this._name;
 
     openPopup(posterPopup);
-  }
+  }*/
+
+
+
+
+
   generateCard() {
 
     this._element = this._getTemplate();
