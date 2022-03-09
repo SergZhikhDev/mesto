@@ -1,12 +1,12 @@
-//import {openPopup} from'./index.js';
+import {openPopup, posterImage, posterPopup, posterTitle} from'./index.js';
 
 
 export class Card {
-  constructor(data,openImage) {
+  constructor(data) {
     this._name = data.name;
     this._link = data.link;
     this._alt = "на фотографии " + data.name;
-    this._openImage = openImage;
+
   }
 
   _getTemplate() {
@@ -21,58 +21,44 @@ export class Card {
   }
   _setEventListeners() {
     this._element
-      .querySelector(".element__hart")
-      .addEventListener("click", () => {
-        this._likeCard();
-      });
+    .querySelector(".element__heart")
+    .addEventListener("click", () => {
+      this._likeCard();
+
+    });
     this._element
       .querySelector(".element__basket")
       .addEventListener("click", () => {
         this._deleteCard();
       });
-    // this._element
-    //   .querySelector(".openPopupBtn__poster")
-    //   .addEventListener("click", () => {
-    //     this._openImage();
-    //   });
-      this._element
-      .querySelector(".openPopupBtn__poster").addEventListener('click', () => {
-        this._openImage(this._name, this._link)})
-
-
-
-
+    this._element
+      .querySelector(".element__image")
+      .addEventListener("click", () => {
+        this._openImage();
+      });
   }
 
   _likeCard() {
     this._element
-      .querySelector(".element__hart")
-      .classList.toggle("element__hart_active");
+      .querySelector(".element__heart")
+      .classList.toggle("element__heart_active");
   }
 
   _deleteCard() {
     this._element
-      .querySelector(".element__basket")
+  .querySelector(".element__basket")
       .closest(".element")
       .remove();
   }
 
-  /*_openImage() {
-    const posterImage = document.querySelector(".poster__image");
-    const posterTitle = document.querySelector(".poster__name");
-    const posterPopup = document.querySelector(".popup_poster");
+  _openImage() {
 
     posterImage.src = this._link;
     posterImage.alt = this._alt;
     posterTitle.textContent = this._name;
 
     openPopup(posterPopup);
-  }*/
-
-
-
-
-
+  }
   generateCard() {
 
     this._element = this._getTemplate();

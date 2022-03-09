@@ -21,7 +21,7 @@
           alt="фотография Жака-Ива Кусто"
         />
         <div class="profile-info">
-          <h1 class="profile-info__name">Жак-Ив Кусто</h1>
+          <h1 class="profile-info__userName">Жак-Ив Кусто</h1>
           <button
             type="button"
             class="openPopupBtn profile-info__edit-button"
@@ -37,18 +37,17 @@
 
       <template class="item_template">
         <li class="element">
-          <div class="element__image-container">
-            <button type="button" class="openPopupBtn openPopupBtn__poster">
-              <img
-                class="element__image"
-                src="https:/"
-                alt="альтернативный текст"
-              />
-            </button>
-            <button type="button" class="element__basket"></button>
+          <img
+            class="element__image"
+            src="https:/"
+            alt="альтернативный текст"
+          />
+          <button type="button" class="element__basket"></button>
+
+          <div class="element__description">
+            <p class="element__title"></p>
+            <button type="button" class="element__heart"></button>
           </div>
-          <h2 class="element__title"></h2>
-          <button type="button" class="element__hart"></button>
         </li>
       </template>
     </main>
@@ -57,20 +56,21 @@
       <p class="footer__copyright">© 2022.Mesto Russia</p>
     </footer>
 
-    <section class="popup profilePopup popupForms" id="popup-profile">
+    <div class="popup popup_type_edit-profile">
       <div class="popup__container">
-        <button
-          type="reset"
-          class="popup__close popup__close_edit-block"
-        ></button>
+        <button type="reset" class="popup__close"></button>
         <h3 class="popup__heading">Редактировать профиль</h3>
-        <form name="editForm" class="form form_edit-block" novalidate>
+        <form
+          name="editProofileForm"
+          class="form form_type_edit-profile"
+          novalidate
+        >
           <fieldset class="form__input-container">
             <input
               type="text"
-              name="name"
-              class="form__input-area form__input-area_name"
-              id="name"
+              name="userName"
+              class="form__input-area"
+              id="userName"
               placeholder="Введите имя"
               value="Жак-Ив Кусто"
               minlength="2"
@@ -78,12 +78,12 @@
               required
             />
 
-            <span class="popup__error" id="error-name"></span>
+            <span class="popup__error" id="error-userName"></span>
 
             <input
               type="text"
               name="about-self"
-              class="form__input-area form__input-area_about-self"
+              class="form__input-area"
               id="about-self"
               placeholder="Введите род занятий"
               value="Исследователь океана"
@@ -106,16 +106,13 @@
           </fieldset>
         </form>
       </div>
-    </section>
+    </div>
 
-    <section class="popup cardPopup popupForms" id="popup-cardPopup">
+    <div class="popup popup_type_cardPopup" id="popup-cardPopup">
       <div class="popup__container">
-        <button
-          type="reset"
-          class="popup__close popup__close_add-block"
-        ></button>
+        <button type="reset" class="popup__close"></button>
         <h3 class="popup__heading">Новое место</h3>
-        <form name="addForm" class="form form_add-block" novalidate>
+        <form name="addCardForm" class="form form_type_add-block" novalidate>
           <fieldset class="form__input-container">
             <input
               type="text"
@@ -153,17 +150,13 @@
           </fieldset>
         </form>
       </div>
-    </section>
+    </div>
 
-    <div class="popup popup_poster">
+    <div class="popup popup_type_poster">
       <div class="poster">
-        <img
-          class="poster__image"
-          src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg"
-          alt=" a"
-        />
+        <img class="poster__image" src="" alt="" />
         <h2 class="poster__name">as</h2>
-        <button type="reset" class="popup__close popup__close_poster"></button>
+        <button type="reset" class="popup__close"></button>
       </div>
     </div>
 

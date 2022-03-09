@@ -29,43 +29,59 @@ const initialCards = [
 ];
 
 const listCards = document.querySelector(".elements"); // список карточек изнаяально пустой, наполняется изначально из массива
+
+
 const placeNameInput = document.querySelector("#place"); //первая полоса ввода формы Новое место(Add)
 const placeLinkInput = document.querySelector("#placeLink"); //вторая полоса ввода формы Новое место(Add)
-const formsInput = document.querySelectorAll(".form__input-area");
-const nameInput = document.querySelector(".form__input-area_name"); //первая полоса ввода форм(Edit)
-const jobInput = document.querySelector(".form__input-area_about-self"); //вторая полоса ввода форм(Edit)
-const profInfoName = document.querySelector(".profile-info__name"); //
+
+
+const formInput = document.querySelectorAll(".form__input-area");
+const nameInput = document.querySelector("#userName"); //первая полоса ввода форм(Edit)
+const jobInput = document.querySelector("#about-self"); //вторая полоса ввода форм(Edit)
+
+const profInfoName = document.querySelector(".profile-info__userName"); //
 const profInfoAboutSelf = document.querySelector(".profile-info__about-self"); //
-const profilePopup = document.querySelector(".profilePopup"); // попап блока редактировать профиль
-const cardPopup = document.querySelector(".cardPopup"); //попап блока добавить карточку
-const formEdit = document.querySelector(".form_edit-block"); //кнопка сохранения формы редактировать профиль
-const formAdd = document.querySelector(".form_add-block"); //кнопка сохранения формы добавить карточку
-const openPopupEditButton = document.querySelector(".profile-info__edit-button"); //кн.откр.формы редакт. профиль
-const openPopupAddButton = document.querySelector(".profile__add-button"); //кнопка открытия формы добавить карточку
+
+const profilePopup = document.querySelector(".popup_type_edit-profile"); // попап блока редактировать профиль
+const cardPopup = document.querySelector(".popup_type_cardPopup"); //попап блока добавить карточку
+
+
+
+const formEdit = document.querySelector(".form_type_edit-profile"); //кнопка сохранения формы редактировать профиль
+const formAdd = document.querySelector(".form_type_add-block"); //кнопка сохранения формы добавить карточку
+
+
+const btnOpenPopupEdit = document.querySelector(".profile-info__edit-button"); //кнопка открытия формы редактировать профиль
+const btnOpenPopupAdd  = document.querySelector(".profile__add-button"); //кнопка открытия формы добавить карточку
+//  const basket= document.querySelector(".element__basket");
+//  const btnOpenPopupPoster= document.querySelector(".openPopupBtn__poster");
+// const heart= document.querySelector(".element__heart");
+
+
+
+
+
+
+export const posterTitle = document.querySelector(".poster__name");
+export const posterImage = document.querySelector(".poster__image");
+export const posterPopup = document.querySelector(".popup_type_poster");
 const popupCloseButtons = document.querySelectorAll(".popup__close");
-const posterImage = document.querySelector(".poster__image");
-const posterTitle = document.querySelector(".poster__name");
-const posterPopup = document.querySelector(".popup_poster");
+
+
+
 
 const enableValidation = {
-  formSelector: ".form",
-  inputSelector: ".form__input-area",
-  submitButtonSelector: ".form__button",
-  inactiveButtonClass: "form__button_disabled",
-  inputErrorClass: "form__input-area_error",
+ formSelector: ".form",
+ inputSelector: ".form__input-area",
+ submitButtonSelector: ".form__button",
+ inactiveButtonClass: "form__button_disabled",
+ inputErrorClass: "form__input-area_error",
   errorClass: "popup_error_visible",
 };
 
 initialCards.forEach((item) => {
-  listCards.append(new Card(item, openImage).generateCard(item));
+  listCards.append(new Card(item).generateCard(item));
 });
-
-function openImage(name, link) {
-  posterImage.src = link;
-  posterImage.alt = name;
-  posterTitle.innerText = name;
-  openPopup(posterPopup);
-}
 
 // функция сохраняет данные первой формы
 function handleProfileFormSubmit(event) {
@@ -83,7 +99,7 @@ function handleAddFormSubmit(event) {
   data.name = placeNameInput.value;
   data.link = placeLinkInput.value;
 
-  listCards.prepend(new Card(data, openImage).generateCard(data));
+  listCards.prepend(new Card(data).generateCard(data));
   closePopup(cardPopup);
 }
 
@@ -104,14 +120,14 @@ const closeWithEscape = (event) => {
 };
 
 // слушатель запускает ф-ию открыть первую формы по клику на edit-buton на add-buton
-openPopupEditButton.addEventListener("click", () => {
+btnOpenPopupEdit.addEventListener("click", () => {
   nameInput.value = profInfoName.textContent;
   jobInput.value = profInfoAboutSelf.textContent;
   reset();
   openPopup(profilePopup);
 });
 
-openPopupAddButton.addEventListener("click", () => {
+btnOpenPopupAdd.addEventListener("click", () => {
   placeNameInput.value = "";
   placeLinkInput.value = "";
   reset();
@@ -149,7 +165,7 @@ function reset() {
   val.forEach((item) => {
     item.textContent = "";
 
-    formsInput.forEach((item) => {
+    formInput.forEach((item) => {
       item.classList.remove("form__input-area_error");
     });
   });

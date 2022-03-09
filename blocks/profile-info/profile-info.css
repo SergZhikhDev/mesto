@@ -8,13 +8,13 @@
   align-items: center;
 }
 
-@media screen and (max-width: 801px) {
+/* @media screen and (max-width: 801px) {
   .profile-info {
     margin: 0 auto 0 20px;
     width: clamp(262px, 45vw, 295px);
   }
-}
-@media screen and (max-width: 751px) {
+} */
+@media screen and (max-width: 801px) {
   .profile-info {
     margin: 0;
     width: 100%;

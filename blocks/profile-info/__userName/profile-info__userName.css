@@ -1,4 +1,4 @@
-.profile-info__name {
+.profile-info__userName {
   margin: 0 18px 16px 0;
   padding: 0;
   /* width: 294px; */
@@ -14,7 +14,7 @@
 }
 
 @media screen and (max-width: 801px) {
-  .profile-info__name {
+  .profile-info__userName {
     margin-right: 10px;
     font-size: 36px;
     width: clamp(230px, 29vw, 260px);
@@ -22,7 +22,7 @@
 }
 
 @media screen and (max-width: 751px) {
-  .profile-info__name {
+  .profile-info__userName {
     margin: 26px 0 14px;
     font-size: clamp(24px, 6vw, 42px);
     width: 80%;
@@ -32,7 +32,7 @@
 }
 
 @media screen and (max-width: 501px) {
-  .profile-info__name {
+  .profile-info__userName {
     margin: 26px 0 9px;
     font-size: 27px;
     line-height: 1.22;

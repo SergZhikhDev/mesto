@@ -1,12 +1,19 @@
 .element__image {
   margin: 0;
   padding: 0;
-  width: 22.025vw;
-  height: 22.025vw;
+  margin: 0;
+  padding: 0;
+  width: 22vw;
+  height: 22vw;
   max-width: 282px;
-  max-height: 282px;
+    max-height: 282px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 801px) {

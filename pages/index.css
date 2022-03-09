@@ -15,20 +15,19 @@
 @import url("../blocks/profile/__add-button/profile__add-button.css");
 
 @import url("../blocks/profile-info/profile-info.css");
-@import url("../blocks/profile-info/__name/profile-info__name.css");
+@import url("../blocks/profile-info/__userName/profile-info__userName.css");
 @import url("../blocks/profile-info/__edit-button/profile-info__edit-button.css");
 @import url("../blocks/profile-info/__about-self/profile-info__about-self.css");
-
 @import url("../blocks/places/places.css");
 @import url("../blocks/elements/elements.css");
-@import url("../blocks/element/__image-container/element__image-container.css");
+
+@import url("../blocks/element/__description/element__description.css");
 @import url("../blocks/element/__basket/element__basket.css");
 @import url("../blocks/element/element.css");
-@import url("../blocks/openPopupBtn/__poster/openPopupBtn__poster.css");
 @import url("../blocks/element/__title/element__title.css");
 @import url("../blocks/element/__image/element__image.css");
-@import url("../blocks/element/__hart/element__hart.css");
-@import url("../blocks/element/__hart/_active/element__hart_active.css");
+@import url("../blocks/element/__heart/element__heart.css");
+@import url("../blocks/element/__heart/_active/element__heart_active.css");
 
 
 

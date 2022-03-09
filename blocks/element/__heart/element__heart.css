@@ -1,7 +1,7 @@
-.element__hart {
-  margin: 30px 20px;
+.element__heart {
+  margin: 5px 5px 0 0;
   padding: 0;
-  width: 22px;
+  width: 27px;
   height: 19px;
   background-color: #fff;
   background-image: url(../../../images/Hartwhite.svg);
@@ -9,18 +9,14 @@
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
-  position: absolute;
-  right:0;
-  bottom: 0;
 }
 
-.element__hart:hover {
+.element__heart:hover {
   opacity: 0.5;
 }
 
 @media screen and (max-width: 501px) {
-  .element__hart {
+  .element__heart {
     margin-left: 5px;
-
   }
 }

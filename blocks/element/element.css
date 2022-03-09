@@ -1,20 +1,11 @@
 .element {
   margin: 0;
   padding: 0;
-  width: 100%;
+  max-width: 282px;
   background-color: #fff;
   border-radius: 10px;
-  display: grid;
-  grid-template-columns: auto 60px;
-  grid-template-rows: auto auto;
-  row-gap: 0;
-  column-gap: 0;
+  display: flex;
+  flex-direction: column;
   list-style: none;
   position: relative;
-}
-
-@media screen and (max-width: 751px) {
-  .element {
-    grid-template-columns: auto 50px;
-  }
 }
