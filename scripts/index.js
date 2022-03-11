@@ -1,39 +1,12 @@
 import { Card } from "./Card.js";
-import FormValidator from "./FormValidator.js";
-
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+import { FormValidator } from "./FormValidator.js";
+import { initialCards } from "./initdate.js";
 
 const listCards = document.querySelector(".elements"); // список карточек изнаяально пустой, наполняется изначально из массива
 
 const placeNameInput = document.querySelector("#place"); //первая полоса ввода формы Новое место(Add)
 const placeLinkInput = document.querySelector("#placeLink"); //вторая полоса ввода формы Новое место(Add)
 
-const formInput = document.querySelectorAll(".form__input-area");
 const nameInput = document.querySelector("#userName"); //первая полоса ввода форм(Edit)
 const jobInput = document.querySelector("#about-self"); //вторая полоса ввода форм(Edit)
 
@@ -55,16 +28,23 @@ export const posterPopup = document.querySelector(".popup_type_poster");
 const popupCloseButtons = document.querySelectorAll(".popup__close");
 
 const enableValidation = {
-  formSelector: ".form",
   inputSelector: ".form__input-area",
   submitButtonSelector: ".form__button",
   inactiveButtonClass: "form__button_disabled",
   inputErrorClass: "form__input-area_error",
-  errorClass: "popup_error_visible",
+  errorClass: ".popup__error",
 };
 
+const validatorEditBlock = new FormValidator(enableValidation, formEdit);
+const validatorAddBlock = new FormValidator(enableValidation, formAdd);
+
+validatorEditBlock.enableValidation();
+validatorAddBlock.enableValidation();
+
 initialCards.forEach((item) => {
-  listCards.append(new Card(item).generateCard(item));
+  listCards.append(
+    new Card(item, ".card-template_type_default").generateCard()
+  );
 });
 
 // функция сохраняет данные первой формы
@@ -79,11 +59,14 @@ function handleProfileFormSubmit(event) {
 // функция сохраняет данные второй формы
 function handleAddFormSubmit(event) {
   event.preventDefault();
+  // event.target.reset();
   const data = {};
   data.name = placeNameInput.value;
   data.link = placeLinkInput.value;
 
-  listCards.prepend(new Card(data).generateCard(data));
+  listCards.prepend(
+    new Card(data, ".card-template_type_default").generateCard()
+  );
   closePopup(cardPopup);
 }
 
@@ -107,15 +90,16 @@ const closeWithEscape = (event) => {
 btnOpenPopupEdit.addEventListener("click", () => {
   nameInput.value = profInfoName.textContent;
   jobInput.value = profInfoAboutSelf.textContent;
-  reset();
+  validatorEditBlock.enableFormButton();
+  validatorEditBlock.resetErrorMessage();
   openPopup(profilePopup);
 });
 
 btnOpenPopupAdd.addEventListener("click", () => {
   placeNameInput.value = "";
   placeLinkInput.value = "";
-  reset();
-
+  validatorAddBlock.disableFormButton();
+  validatorAddBlock.resetErrorMessage();
   openPopup(cardPopup);
 });
 
@@ -135,27 +119,3 @@ popupCloseButtons.forEach((button) => {
     }
   });
 });
-
-function reset() {
-  const subAddBtn = document.querySelector(".form__button_add-block");
-  subAddBtn.classList.add("form__button_disabled");
-  subAddBtn.setAttribute("disabled", "");
-
-  const subEditBtn = document.querySelector(".form__button_edit-block");
-  subEditBtn.classList.remove("form__button_disabled");
-  subEditBtn.removeAttribute("disabled", "");
-
-  const val = document.querySelectorAll(".popup__error");
-  val.forEach((item) => {
-    item.textContent = "";
-
-    formInput.forEach((item) => {
-      item.classList.remove("form__input-area_error");
-    });
-  });
-}
-
-const validateEditBlock = new FormValidator(enableValidation, formEdit);
-const validateAddBlock = new FormValidator(enableValidation, formAdd);
-validateEditBlock.enableValidation();
-validateAddBlock.enableValidation();

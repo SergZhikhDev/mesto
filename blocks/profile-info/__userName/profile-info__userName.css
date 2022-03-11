@@ -15,14 +15,6 @@
 
 @media screen and (max-width: 801px) {
   .profile-info__userName {
-    margin-right: 10px;
-    font-size: 36px;
-    width: clamp(230px, 29vw, 260px);
-  }
-}
-
-@media screen and (max-width: 751px) {
-  .profile-info__userName {
     margin: 26px 0 14px;
     font-size: clamp(24px, 6vw, 42px);
     width: 80%;
