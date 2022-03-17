@@ -1,11 +1,10 @@
-import { openPopup, posterTitle, posterImage, posterPopup } from "./index.js";
-// Есть вврианит без импорта, там открытие попапа происходит через колбэк функции openImage(name, link), но тогда
-// конструктор класса Card должен принимать в себя и эту функцию, вроде как не по заданию получается
+import { posterTitle, posterImage, posterPopup } from "../utils/constants.js";
+import { openPopup } from "../pages/index.js";
 
 export class Card {
-  constructor(data, cardSelector) {
-    this._name = data.name;
-    this._link = data.link;
+constructor(data, cardSelector) {
+   this._name = data.name;
+   this._link = data.link;
     this._alt = "на фотографии " + data.name;
     this._cardSelector = cardSelector;
   }
