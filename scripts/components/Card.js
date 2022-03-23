@@ -1,12 +1,13 @@
-import { posterTitle, posterImage, posterPopup } from "../utils/constants.js";
-import { openPopup } from "../pages/index.js";
+// import { posterTitle, posterImage, posterPopup } from "../utils/constants.js";
+// import { openPopup } from "../pages/index.js";
 
 export class Card {
-constructor(data, cardSelector) {
+constructor(data, cardSelector, handleCardClick) {
    this._name = data.name;
    this._link = data.link;
     this._alt = "на фотографии " + data.name;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -33,7 +34,8 @@ constructor(data, cardSelector) {
     this._element
       .querySelector(".element__image")
       .addEventListener("click", () => {
-        this._openImage();
+        this._handleCardClick({ name: this._name, link: this._link });
+
       });
   }
 
@@ -47,13 +49,13 @@ constructor(data, cardSelector) {
     this._element.remove();
   }
 
-  _openImage() {
-    posterImage.src = this._link;
-    posterImage.alt = this._alt;
-    posterTitle.textContent = this._name;
+  // _openImage() {
+  //   posterImage.src = this._link;
+  //   posterImage.alt = this._alt;
+  //   posterTitle.textContent = this._name;
 
-    openPopup(posterPopup);
-  }
+  //   openPopup(posterPopup);
+  // }
   generateCard() {
     this._element = this._getTemplate();
     this._setEventListeners();

@@ -18,11 +18,12 @@ export const formAdd = document.querySelector(".form_type_add-block"); //кно�
 export const btnOpenPopupEdit = document.querySelector(".profile-info__edit-button"); //кнопка открытия формы редактировать профиль
 export const btnOpenPopupAdd = document.querySelector(".profile__add-button"); //кнопка открытия формы добавить карточку
 
+
 export const posterTitle = document.querySelector(".poster__name");
 export const posterImage = document.querySelector(".poster__image");
 export const posterPopup = document.querySelector(".popup_type_poster");
 export const popupCloseButtons = document.querySelectorAll(".popup__close");
-export const cardListSelector = '.elements';
+
 
 export const enableValidation = {
   inputSelector: ".form__input-area",
@@ -33,3 +34,8 @@ export const enableValidation = {
 };
 
 
+export const selectors = {
+
+cardListSelector: '.elements',
+
+}
