@@ -12,8 +12,8 @@ export const profInfoAboutSelf = document.querySelector(".profile-info__about-se
 export const profilePopup = document.querySelector(".popup_type_edit-profile"); // попап блока редактировать профиль
 export const cardPopup = document.querySelector(".popup_type_cardPopup"); //попап блока добавить карточку
 
-export const formEdit = document.querySelector(".form_type_edit-profile"); //кнопка сохранения формы редактировать профиль
-export const formAdd = document.querySelector(".form_type_add-block"); //кнопка сохранения формы добавить карточку
+export const btnFormEdit = document.querySelector(".form_type_edit-profile"); //кнопка сохранения формы редактировать профиль
+export const btnFormAdd = document.querySelector(".form_type_add-block"); //кнопка сохранения формы добавить карточку
 
 export const btnOpenPopupEdit = document.querySelector(".profile-info__edit-button"); //кнопка открытия формы редактировать профиль
 export const btnOpenPopupAdd = document.querySelector(".profile__add-button"); //кнопка открытия формы добавить карточку
@@ -37,5 +37,10 @@ export const enableValidation = {
 export const selectors = {
 
 cardListSelector: '.elements',
+userNameSelector: '.profile-info__userName',
+aboutSelfSelector: '.profile-info__about-self',
+userNameNewSelector:'.form__input-area_userName',
+aboutSelfNewSelector:'.form__input-area_aboutSelf'
 
 }
+console.log(selectors.userNameSelector)

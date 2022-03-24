@@ -1,59 +1,112 @@
-import Section from '../components/Section.js';
+import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { initialCards } from "../initdate.js";
 import {
-  listCards, placeNameInput, placeLinkInput, nameInput,
-  jobInput, profInfoName, profInfoAboutSelf,profilePopup,
-  cardPopup, formEdit, formAdd, btnOpenPopupEdit, btnOpenPopupAdd,
-  popupCloseButtons, enableValidation,selectors
-} from '../utils/constants.js';
+  listCards,
+  placeNameInput,
+  placeLinkInput,
+  nameInput,
+  jobInput,
+  profInfoName,
+  profInfoAboutSelf,
+  profilePopup,
+  cardPopup,
+  btnFormEdit,
+  btnFormAdd,
+  btnOpenPopupEdit,
+  btnOpenPopupAdd,
+  popupCloseButtons,
+  enableValidation,
+  selectors,
+} from "../utils/constants.js";
+
+const validatorEditBlock = new FormValidator(enableValidation, btnFormEdit);
+const validatorAddBlock = new FormValidator(enableValidation, btnFormAdd);
+
+const defaultCardList = new Section(
+  {
+    items: initialCards,
+    renderer: createCard,
+  },
+  selectors.cardListSelector
+);
 
 
 
+const popupPoster = new PopupWithImage(".popup_type_poster");
 
-const validatorEditBlock = new FormValidator(enableValidation, formEdit);
-const validatorAddBlock = new FormValidator(enableValidation, formAdd);
+const popupEditProfileForm = new PopupWithForm(".popup_type_edit-profile", handleProfileFormSubmit);
 
+const popupAddCardForm = new PopupWithForm(".popup_type_cardPopup", handleAddFormSubmit);
 
-const defaultCardList = new Section({
-   items:initialCards,
-  renderer:createCard
- }, selectors.cardListSelector);
+const userInfo = new UserInfo(
+  selectors.userNameSelector,
+   selectors.aboutSelfSelector,
+   selectors.userNameNewSelector,
+   selectors.aboutSelfNewSelector
+   )
 
- function createCard(item) {
-  return new Card(item, ".card-template_type_default", handleCardClick).generateCard()
+function createCard(item) {
+  return new Card(
+    item,
+    ".card-template_type_default",
+    handleCardClick
+  ).generateCard();
 }
 
 function handleCardClick(data) {
-  popupPoster.open(data)
+  popupPoster.open(data);
 }
 
 
-
- const popupPoster = new PopupWithImage(".popup_type_poster")
-
-
-
-
-
-defaultCardList.renderItems();
 
 
 
 // функция сохраняет данные первой формы
-function handleProfileFormSubmit(event) {
-  event.preventDefault();
+function handleProfileFormSubmit() {
+  //  evt.preventDefault();
+  //const userNewData = userInfo.setUserInfo();
 
-  profInfoName.textContent = nameInput.value;
-  profInfoAboutSelf.textContent = jobInput.value;
-  closePopup(profilePopup);
+  userInfo.setUserInfo();
+  // profInfoName.textContent = nameInput.value;
+  // profInfoAboutSelf.textContent = jobInput.value;
+
+  popupEditProfileForm.close();
 }
 
+
+
+// слушатель запускает ф-ию открыть первую формы по клику на edit-buton на add-buton
+btnOpenPopupEdit.addEventListener("click", () => {
+userInfo.getUserInfo();
+
+
+
+  nameInput.value = profInfoName.textContent;
+  jobInput.value = profInfoAboutSelf.textContent;
+
+  validatorEditBlock.enableFormButton();
+  validatorEditBlock.resetErrorMessage();
+  popupEditProfileForm.open();
+
+});
+
+
+
+
+
+
+
+
+
+
 // функция сохраняет данные второй формы
-function handleAddFormSubmit(event) {
-  event.preventDefault();
+function handleAddFormSubmit() {
+ // event.preventDefault();
   // event.target.reset();
   const data = {};
   data.name = placeNameInput.value;
@@ -62,7 +115,8 @@ function handleAddFormSubmit(event) {
   listCards.prepend(
     new Card(data, ".card-template_type_default").generateCard()
   );
-  closePopup(cardPopup);
+  popupAddCardForm.close();
+
 }
 
 // export function openPopup(popup) {
@@ -81,27 +135,25 @@ function handleAddFormSubmit(event) {
 //   }
 // };
 
-// слушатель запускает ф-ию открыть первую формы по клику на edit-buton на add-buton
-btnOpenPopupEdit.addEventListener("click", () => {
-  nameInput.value = profInfoName.textContent;
-  jobInput.value = profInfoAboutSelf.textContent;
-  validatorEditBlock.enableFormButton();
-  validatorEditBlock.resetErrorMessage();
-  openPopup(profilePopup);
-});
+
+
+
 
 btnOpenPopupAdd.addEventListener("click", () => {
   placeNameInput.value = "";
   placeLinkInput.value = "";
+
+
   validatorAddBlock.disableFormButton();
   validatorAddBlock.resetErrorMessage();
-  openPopup(cardPopup);
+  //openPopup(cardPopup);
+  popupAddCardForm.open();
 });
 
 //слушатель на кнопку "submit"
 
-formEdit.addEventListener("submit", handleProfileFormSubmit);
-formAdd.addEventListener("submit", handleAddFormSubmit);
+//sbtnFormEdit.addEventListener("submit", handleProfileFormSubmit);
+//btnFormAdd.addEventListener("submit", handleAddFormSubmit);
 
 // popupCloseButtons.forEach((button) => {
 //   const popup = button.closest(".popup");
@@ -116,4 +168,4 @@ formAdd.addEventListener("submit", handleAddFormSubmit);
 // });
 validatorEditBlock.enableValidation();
 validatorAddBlock.enableValidation();
-
+defaultCardList.renderItems();
