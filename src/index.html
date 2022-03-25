@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
-    <link rel="stylesheet" href="./scripts/pages/index.css" />
+    <!-- <link rel="stylesheet" href="./scripts/pages/index.css" /> -->
   </head>
 
   <body class="page">
     <header class="header">
-      <img class="logo" src="./images/logo.svg" alt="логотип проекта Mesto" />
+      <img class="logo"  src="<%=require('./images/logo.svg')%>"  alt="логотип проекта Mesto" />
       <hr class="header__line" />
     </header>
 
@@ -17,7 +17,7 @@
       <section class="profile">
         <img
           class="profile__avatar"
-          src="./images/Kusto.png"
+          src="<%=require('./images/Kusto.png')%>"
           alt="фотография Жака-Ива Кусто"
         />
         <div class="profile-info">
@@ -156,6 +156,6 @@
       </div>
     </div>
 
-    <script type="module" src="./scripts/pages/index.js"></script>
+    <!-- <script type="module" src="./scripts/pages/index.js"></script> -->
   </body>
 </html>
