@@ -1,26 +1,21 @@
 export default class UserInfo {
-  constructor(
-    userNameSelector,
-    aboutSelfSelector,
-    userNewNameSelector,
-    aboutSelfNewSelector
-  ) {
+  constructor({ userNameSelector, aboutSelfSelector }) {
     this._userNameElement = document.querySelector(userNameSelector);
     this._aboutSelfElement = document.querySelector(aboutSelfSelector);
-    this._userNameNewElement = document.querySelector(userNewNameSelector);
-    this._aboutSelfNewElement = document.querySelector(aboutSelfNewSelector);
+    this.getUserInfo = this.getUserInfo.bind(this);
+    this.setUserInfo = this.setUserInfo.bind(this);
   }
 
   getUserInfo() {
     const data = {
       userName: this._userNameElement.textContent,
-      aboutSelf: this._aboutSelfElement.textContent,
+      about: this._aboutSelfElement.textContent,
     };
     return data;
   }
 
-  setUserInfo() {
-    this._userNameElement.textContent = this._userNameNewElement.value;
-    this._aboutSelfElement.textContent = this._aboutSelfNewElement.value;
+  setUserInfo({ userName, about }) {
+    this._userNameElement.textContent = userName;
+    this._aboutSelfElement.textContent = about;
   }
 }

@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
-    <!-- <link rel="stylesheet" href="./scripts/pages/index.css" /> -->
+    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
   </head>
 
   <body class="page">
     <header class="header">
       <img class="logo"  src="<%=require('./images/logo.svg')%>"  alt="логотип проекта Mesto" />
+          <!-- <img class="logo"  src="./images/logo.svg"  alt="логотип проекта Mesto" /> -->
+
       <hr class="header__line" />
     </header>
 
@@ -37,7 +39,7 @@
 
       <template class="card-template card-template_type_default">
         <li class="element">
-          <img class="element__image" src="http" alt="" />
+          <img class="element__image" src="#" alt="" />
           <button type="button" class="element__basket"></button>
 
           <div class="element__description">
@@ -57,7 +59,7 @@
         <button type="reset" class="popup__close"></button>
         <h3 class="popup__heading">Редактировать профиль</h3>
         <form
-          name="editProofileForm"
+          name="editProfileForm"
           class="form form_type_edit-profile"
           novalidate
         >
@@ -65,7 +67,7 @@
             <input
               type="text"
               name="userName"
-              class="form__input-area form__input-area_userName"
+              class="form__input-area form__input-area_name  form__input-area_userName"
               id="userName"
               placeholder="Введите имя"
               value="Жак-Ив Кусто"
@@ -79,7 +81,7 @@
             <input
               type="text"
               name="aboutSelf"
-              class="form__input-area form__input-area_aboutSelf"
+              class="form__input-area form__input-area_property form__input-area_aboutSelf"
               id="about-self"
               placeholder="Введите род занятий"
               value="Исследователь океана"
@@ -113,7 +115,7 @@
             <input
               type="text"
               name="place"
-              class="form__input-area"
+              class="form__input-area form__input-area_name"
               id="place"
               placeholder="Название"
               value=""
@@ -126,7 +128,7 @@
             <input
               type="url"
               name="placeLink"
-              class="form__input-area"
+              class="form__input-area form__input-area_property"
               id="placeLink"
               placeholder="Введите ссылку"
               value=""
@@ -150,12 +152,12 @@
 
     <div class="popup popup_type_poster">
       <div class="poster">
-        <img class="poster__image" src="http" alt="" />
+        <img class="poster__image" src="#" alt="" />
         <h2 class="poster__name">as</h2>
         <button type="reset" class="popup__close"></button>
       </div>
     </div>
 
-    <!-- <script type="module" src="./scripts/pages/index.js"></script> -->
+    <!-- <script type="module" src="./pages/index.js"></script> -->
   </body>
 </html>

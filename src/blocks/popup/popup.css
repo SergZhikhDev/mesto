@@ -3,11 +3,10 @@
   padding: 0;
   position: fixed;
   background: rgba(0, 0, 0, 0.5);
-  display:none;
-   display: flex;
-  visibility:hidden;
- opacity:0.5;
-  transition:opacity 0.5s linear;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s linear;
   justify-content: center;
   align-items: center;
   top: 0;
@@ -16,5 +15,3 @@
   height: 100%;
   z-index: 3;
 }
-
-

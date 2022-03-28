@@ -42,8 +42,6 @@ export default class FormValidator {
     this._toggleButtonState();
 
     this._inputList.forEach((inputElement) => {
-      // проверяем заполнены ли поля и делаем предварительную проверку в самом начале
-      inputElement.value ? this._checkInputValidity(inputElement) : "";
 
       // валидируем при изменении полей
       inputElement.addEventListener("input", () => {

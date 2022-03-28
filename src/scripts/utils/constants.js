@@ -1,5 +1,5 @@
 export const listCards = document.querySelector(".elements"); // список карточек изнаяально пустой, наполняется изначально из массива
-
+export const elementImage = document.querySelector(".element__image");
 export const placeNameInput = document.querySelector("#place"); //первая полоса ввода формы Новое место(Add)
 export const placeLinkInput = document.querySelector("#placeLink"); //вторая полоса ввода формы Новое место(Add)
 
@@ -39,8 +39,7 @@ export const selectors = {
 cardListSelector: '.elements',
 userNameSelector: '.profile-info__userName',
 aboutSelfSelector: '.profile-info__about-self',
-userNameNewSelector:'.form__input-area_userName',
-aboutSelfNewSelector:'.form__input-area_aboutSelf'
 
 }
-console.log(selectors.userNameSelector)
+
+
