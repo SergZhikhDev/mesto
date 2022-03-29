@@ -7,20 +7,28 @@ import Card from "../scripts/components/Card.js";
 import FormValidator from "../scripts/components/FormValidator.js";
 import { initialCards } from "../scripts/utils/initdate.js";
 import {
-  placeNameInput,
-  placeLinkInput,
   nameInput,
   jobInput,
-  btnFormEdit,
-  btnFormAdd,
   btnOpenPopupEdit,
   btnOpenPopupAdd,
-  enableValidation,
+  config,
   selectors,
 } from "../scripts/utils/constants.js";
 
-const validatorEditBlock = new FormValidator(enableValidation, btnFormEdit);
-const validatorAddBlock = new FormValidator(enableValidation, btnFormAdd);
+const formValidators = {};
+
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement);
+    const formName = formElement.getAttribute("name");
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(config);
+
 const defaultCardList = new Section(
   {
     items: initialCards,
@@ -41,7 +49,6 @@ const popupAddCardForm = new PopupWithForm(
   ".popup_type_cardPopup",
   handleAddFormSubmit
 );
-
 popupAddCardForm.setEventListeners();
 
 const userInfo = new UserInfo(selectors);
@@ -54,45 +61,33 @@ function createCard(data) {
   ).generateCard();
 }
 
-// функция открывает постер попап
 function handleCardClick(data) {
   popupPoster.open(data);
 }
 
-// функция сохраняет данные первой формы
-function handleProfileFormSubmit(data) {
-  userInfo.setUserInfo(data);
-
-  popupEditProfileForm.close();
-}
-
-// функция сохраняет данные второй формы
-function handleAddFormSubmit(data) {
-  data.name = placeNameInput.value;
-  data.link = placeLinkInput.value;
-
-  defaultCardList.prependItem(createCard(data));
-  popupAddCardForm.close();
-}
-
-// console.log(submitHandler())
-// слушатель запускает ф-ию открыть первую формы по клику на edit-buton
 btnOpenPopupEdit.addEventListener("click", () => {
-  nameInput.value = userInfo.getUserInfo().userName;
-  jobInput.value = userInfo.getUserInfo().about;
-
-  validatorEditBlock.enableFormButton();
-  validatorEditBlock.resetErrorMessage();
+  const { userName, aboutSelf } = userInfo.getUserInfo();
+  nameInput.value = userName;
+  jobInput.value = aboutSelf;
+  formValidators["editProfileForm"].resetErrorMessage();
   popupEditProfileForm.open();
 });
 
-// слушатель запускает ф-ию открыть вторую формы по клику на add-butonна
 btnOpenPopupAdd.addEventListener("click", () => {
-  validatorAddBlock.disableFormButton();
-  validatorAddBlock.resetErrorMessage();
+  formValidators["addCardForm"].resetErrorMessage();
   popupAddCardForm.open();
 });
 
-validatorEditBlock.enableValidation();
-validatorAddBlock.enableValidation();
+function handleProfileFormSubmit(data) {
+  userInfo.setUserInfo(data);
+  popupEditProfileForm.close();
+}
+
+function handleAddFormSubmit(values) {
+  values.name = values["place"];
+  values.link = values["placeLink"];
+  defaultCardList.prependCard(createCard(values));
+  popupAddCardForm.close();
+}
+
 defaultCardList.renderItems();

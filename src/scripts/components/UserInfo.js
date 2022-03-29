@@ -9,13 +9,13 @@ export default class UserInfo {
   getUserInfo() {
     const data = {
       userName: this._userNameElement.textContent,
-      about: this._aboutSelfElement.textContent,
+      aboutSelf: this._aboutSelfElement.textContent,
     };
     return data;
   }
 
-  setUserInfo({ userName, about }) {
+  setUserInfo({ userName, aboutSelf }) {
     this._userNameElement.textContent = userName;
-    this._aboutSelfElement.textContent = about;
+    this._aboutSelfElement.textContent = aboutSelf;
   }
 }

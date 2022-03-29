@@ -40,7 +40,6 @@ export default class Card {
 
   generateCard() {
     this._element = this._getTemplate();
-
     this._elementImage = this._element.querySelector(".element__image");
     this._elementHart = this._element.querySelector(".element__heart");
     this._elementBasket = this._element.querySelector(".element__basket");

@@ -6,15 +6,16 @@ export default class Section {
   }
   renderItems() {
     this._items.forEach((item) => {
-      this.addItem(this._renderer(item));
+      this.addItem(item);
     });
   }
 
   addItem(item) {
-    this._container.append(item);
+    const card = this._renderer(item);
+    this._container.append(card);
   }
 
-  prependItem(item) {
+  prependCard(item) {
     this._container.prepend(item);
   }
 }
