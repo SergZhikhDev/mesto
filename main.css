@@ -19,7 +19,9 @@
 .element{background-color:#fff;border-radius:10px;display:flex;flex-direction:column;list-style:none;margin:0;max-width:282px;padding:0;position:relative}
 .element__title{font-family:inherit;font-size:24px;font-style:normal;font-weight:900;height:23px;line-height:1.21;margin:0;overflow:hidden;padding:0 10px 0 0;text-overflow:ellipsis;white-space:nowrap;width:calc(100% - 25px)}@media screen and (max-width:801px){.element__title{font-size:clamp(16px,3vw,24px);width:calc(100% - 5px)}}@media screen and (max-width:501px){.element__title{font-size:24px;width:calc(100% - 25px)}}
 .element__image{border-top-left-radius:10px;border-top-right-radius:10px;cursor:pointer;display:block;height:22vw;margin:0;max-height:282px;max-width:282px;-o-object-fit:cover;object-fit:cover;padding:0;width:100%}@media screen and (max-width:801px){.element__image{height:33.3vw}}@media screen and (max-width:501px){.element__image{height:282px;width:282px}}
-.element__heart{background-color:#fff;background-image:url(images/Hartwhite.svg);background-position:50%;background-repeat:no-repeat;border:none;cursor:pointer;height:19px;margin:5px 5px 0 0;padding:0;width:27px}.element__heart:hover{opacity:.5}@media screen and (max-width:501px){.element__heart{margin-left:5px}}
+.element__heart{background-color:#fff;background-image:url(images/Hartwhite.svg);background-position:50%;background-repeat:no-repeat;border:none;cursor:pointer;height:19px;margin:0;padding:0;width:27px}.element__heart:hover{opacity:.5}
+.element__likeCount{margin:0;padding:0}
+.element__likeContainer{align-items:center;display:flex;flex-direction:column;flex-wrap:nowrap;height:35px;justify-content:space-between;margin:0;padding:0}
 .element__heart_active{background-image:url(images/Hart.svg)}
 .popup{align-items:center;background:rgba(0,0,0,.5);display:flex;height:100%;justify-content:center;left:0;margin:0;opacity:0;padding:0;position:fixed;top:0;transition:visibility .5s,opacity .5s linear;visibility:hidden;width:100vw;z-index:3}
 .popup_opened{opacity:1;transition:visibility .5s,opacity .5s linear;visibility:visible}
