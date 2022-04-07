@@ -12,10 +12,10 @@ export default class Section {
 
   addItem(item) {
     const card = this._renderer(item);
-    this._container.append(card);
+    this._container.prepend(card);
   }
 
-  prependCard(item) {
-    this._container.prepend(item);
-  }
+  // prependCard(item) {
+  //   this._container.prepend(item);
+  // }
 }

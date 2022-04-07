@@ -9,8 +9,6 @@ export default class PopupWithForm extends Popup {
     this._inputList = Array.from(
       this._form.querySelectorAll(".form__input-area")
     );
-
-    // this.setInputValues = this.setInputValues.bind(this);
   }
 
   _getInputValues() {
@@ -25,13 +23,9 @@ export default class PopupWithForm extends Popup {
     this._handleFormSubmit(this._getInputValues());
   }
 
-  // setInputValues(data) {
-  //   this._inputList.forEach((input) => {
-  //     input.value = data[input.name];
-  //   });
-  // }
-  /* Возможно не прав, не стал применять этот метод, т.к. импуты формы Edit  при открытии
-заполняются userInfo.getUserInfo(), а инпуты Add должны быть пустыми*/
+changeSubmitHandler(newSubmitHandler){
+  this._handleFormSubmit = newSubmitHandler
+}
 
   setEventListeners() {
     super.setEventListeners();
