@@ -26,6 +26,7 @@ export default class Card {
       .cloneNode(true);
     return cardElement;
   }
+
   _setEventListeners() {
     this._elementHart.addEventListener("click", () => {
       this._handleLikeClick(this._id);
@@ -60,17 +61,17 @@ export default class Card {
     this._elementlikeCount.textContent = this._likes.length;
 
     if (this.isLiked()) {
-      this._filLike();
+      this._getLike();
     } else {
-      this._unfilLike();
+      this._takeLike();
     }
   }
 
-  _filLike() {
+  _getLike() {
     this._elementHart.classList.add("element__heart_active");
   }
 
-  _unfilLike() {
+  _takeLike() {
     this._elementHart.classList.remove("element__heart_active");
   }
 
@@ -85,9 +86,13 @@ export default class Card {
     this._elementImage.alt = this._alt;
     this._elementTitle.textContent = this._name;
     this.setLikes(this._likes);
+
+
     if (this._ownerId !== this._userId) {
       this._elementBasket.style.display = "none";
     }
+
+
     this._setEventListeners();
     return this._element;
   }

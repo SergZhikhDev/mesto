@@ -9,6 +9,11 @@ export default class PopupWithForm extends Popup {
     this._inputList = Array.from(
       this._form.querySelectorAll(".form__input-area")
     );
+
+    this.submitButton = this._popup.querySelector(".form__button");
+    this.dontWorryButton = this._popup.querySelector(
+      ".form__button-dont-worry"
+    );
   }
 
   _getInputValues() {
@@ -23,9 +28,9 @@ export default class PopupWithForm extends Popup {
     this._handleFormSubmit(this._getInputValues());
   }
 
-changeSubmitHandler(newSubmitHandler){
-  this._handleFormSubmit = newSubmitHandler
-}
+  changeSubmitHandler(newSubmitHandler) {
+    this._handleFormSubmit = newSubmitHandler;
+  }
 
   setEventListeners() {
     super.setEventListeners();
@@ -35,5 +40,15 @@ changeSubmitHandler(newSubmitHandler){
   close() {
     super.close();
     this._form.reset();
+  }
+
+  renderLoading(isLoading) {
+    if (isLoading) {
+      this.dontWorryButton.classList.add("form__button-dont-worry_visible");
+      this.submitButton.classList.add("form__button_hidden");
+    } else {
+      this.dontWorryButton.classList.remove("form__button-dont-worry_visible");
+      this.submitButton.classList.remove("form__button_hidden");
+    }
   }
 }
