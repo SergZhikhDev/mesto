@@ -159,7 +159,7 @@ function handleAvatarUpdateFormSubmit({ avatar }) {
   api
     .avatarUpdate(avatar)
     .then((res) => {
-      console.log("res", res);
+
       userInfo.setAvatar(avatar);
       popupAvatarUpdate.close();
     })
@@ -207,5 +207,7 @@ function handleAddFormSubmit(values) {
     });
 }
 
+
 defaultCardList.renderItems();
 enableValidation(config);
+
