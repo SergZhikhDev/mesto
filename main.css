@@ -16,7 +16,7 @@
 .places{margin:0;max-width:880px;padding:0 0 60px;width:100%}@media screen and (max-width:501px){.places{align-items:center;display:flex;flex-direction:column;padding-bottom:48px}}
 .elements{-moz-column-gap:17px;column-gap:17px;display:grid;grid-template-columns:repeat(3,minmax(170px,1fr));grid-template-rows:1fr;list-style:none;margin:0;padding:0;row-gap:20px;width:100%}@media screen and (max-width:801px){.elements{grid-template-columns:repeat(2,minmax(170px,1fr))}}@media screen and (max-width:501px){.elements{grid-template-columns:1fr;width:282px}}
 .element__description{align-items:center;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;margin:25px 15px 31px 21px;max-width:282px;padding:0}
-.element__basket{background-color:transparent;background-image:url(images/Basket.svg);background-position:50%;background-repeat:no-repeat;border:none;cursor:pointer;height:19px;margin:0;padding:0;position:absolute;right:20px;top:20px;width:19px}.element__basket:hover{opacity:.5}
+.element__basket{background-color:transparent;background-image:url(images/Basket.svg);background-position:50%;background-repeat:no-repeat;border:none;cursor:pointer;display:block;height:19px;margin:0;padding:0;position:absolute;right:20px;top:20px;width:19px}.element__basket:hover{opacity:.5}
 .element{background-color:#fff;border-radius:10px;display:flex;flex-direction:column;list-style:none;margin:0;max-width:282px;padding:0;position:relative}
 .element__title{font-family:inherit;font-size:24px;font-style:normal;font-weight:900;height:23px;line-height:1.21;margin:0;overflow:hidden;padding:0 10px 0 0;text-overflow:ellipsis;white-space:nowrap;width:calc(100% - 25px)}@media screen and (max-width:801px){.element__title{font-size:clamp(16px,3vw,24px);width:calc(100% - 5px)}}@media screen and (max-width:501px){.element__title{font-size:24px;width:calc(100% - 25px)}}
 .element__image{border-top-left-radius:10px;border-top-right-radius:10px;cursor:pointer;display:block;height:22vw;margin:0;max-height:282px;max-width:282px;-o-object-fit:cover;object-fit:cover;padding:0;width:100%}@media screen and (max-width:801px){.element__image{height:33.3vw}}@media screen and (max-width:501px){.element__image{height:282px;width:282px}}
@@ -38,8 +38,12 @@
 .form__input-area{border:none;border-bottom:1px solid rgba(0,0,0,.2);color:#000;font-family:inherit;font-size:14px;font-style:normal;font-weight:400;height:14px;line-height:14px;margin:0;padding:0 0 12px;width:100%}.popup__input:first-of-type{margin:48px 0 0}.popup__input:nth-of-type(2){margin:0}
 .form__input-area_error{border-bottom:1px solid red}
 .form__handlers{align-items:center;border:none;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:center;margin:13px auto 37px;padding:0}@media screen and (max-width:501px){.form__handlers{margin:15px auto 25px;width:238px}}
-.form__button{background:#000;border:none;color:#fff;cursor:pointer;font-family:inherit;font-size:18px;font-style:normal;font-weight:400;height:50px;line-height:1;margin:0;padding:0;text-align:center;width:358px}.form__button:hover{opacity:.8;transition:opacity .3s linear}@media screen and (max-width:501px){.form__button{font-size:14px;height:46px;line-height:1.21;margin-bottom:14px;width:238px}}
-.form__button_disabled{background-color:#fff;border:1px solid #000;color:#000;opacity:.2;pointer-events:none}.form__button_disabled:hover{opacity:.8}
+.form__button{background:#000;border:none;color:#fff;cursor:pointer;display:block;font-family:inherit;font-size:18px;font-style:normal;font-weight:400;height:50px;line-height:1;margin:0;padding:0;position:relative;text-align:center;width:358px}.form__button:hover{opacity:.8;transition:opacity .3s linear}@media screen and (max-width:501px){.form__button{font-size:14px;height:46px;line-height:1.21;margin-bottom:14px;width:238px}}
+.form__button_disabled{background-color:#fff;border:1px solid #000;color:#000;display:block;opacity:.2;pointer-events:none}.form__button_disabled:hover{opacity:.8}
+.form__button-dont-worry{display:none;position:absolute}
+.form__button-dont-worry_visible{display:block;position:absolute}
+.form__button_hidden{display:none}
+.form__button_disabled_hidden{display:none}
 .popup_poster{background:rgba(0,0,0,.9);opacity:1}
 .poster{margin:0;max-height:75vw;max-width:75vw;padding:0;position:relative}
 .poster__name{color:#fff;font-family:inherit;font-size:12px;font-style:normal;font-weight:400;line-height:1.25;margin:10px 0 0;max-height:14px;padding:0;width:100%}
