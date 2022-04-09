@@ -11,7 +11,7 @@ class Api {
       .then((res) =>
         res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
       )
-      .catch(console.log);
+
   }
 
   getInitialCards() {
@@ -21,7 +21,7 @@ class Api {
       .then((res) =>
         res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
       )
-      .catch(console.log);
+
   }
 
   editProfile(name, about) {
@@ -36,7 +36,7 @@ class Api {
       .then((res) =>
         res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
       )
-      .catch(console.log);
+
   }
 
   addCard(name, link) {
@@ -52,7 +52,7 @@ class Api {
         res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
       )
 
-      .catch(console.log);
+
   }
 
   deleteCard(id) {
@@ -63,7 +63,7 @@ class Api {
       .then((res) =>
         res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
       )
-      .catch(console.log);
+
   }
 
   addlikeCard(id) {
@@ -74,7 +74,7 @@ class Api {
       .then((res) =>
         res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
       )
-      .catch(console.log);
+
   }
 
   deletelikeCard(id) {
@@ -85,7 +85,7 @@ class Api {
       .then((res) =>
         res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
       )
-      .catch(console.log);
+
   }
 
   avatarUpdate(avatar) {
@@ -99,7 +99,7 @@ class Api {
       .then((res) =>
         res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
       )
-      .catch(console.log);
+
   }
 }
 

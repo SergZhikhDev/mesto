@@ -34,7 +34,7 @@ export default class PopupWithForm extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    this._form.addEventListener("submit", this.submitHandler);
+    this._form.addEventListener("submit",this.submitHandler);
   }
 
   close() {
@@ -45,10 +45,12 @@ export default class PopupWithForm extends Popup {
   renderLoading(isLoading) {
     if (isLoading) {
       this.dontWorryButton.classList.add("form__button-dont-worry_visible");
-      this.submitButton.classList.add("form__button_hidden");
+  //  this.submitButton.classList.add("form__button_hidden");
+
     } else {
       this.dontWorryButton.classList.remove("form__button-dont-worry_visible");
-      this.submitButton.classList.remove("form__button_hidden");
+     this.submitButton.classList.remove("form__button_hidden");
+
     }
   }
 }

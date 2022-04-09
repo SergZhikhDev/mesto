@@ -60,7 +60,7 @@
 @import url("../blocks/form/__button/form__button.css");
 @import url("../blocks/form/__button/_disabled/form__button_disabled.css");
 @import url("../blocks/form/__button-dont-worry/form__button-dont-worry.css");
-@import url("../blocks/form/__button-dont-worry/_visible/form__button-dont-worry_add-block.css");
+@import url("../blocks/form/__button-dont-worry/_visible/form__button-dont-worry_visible.css");
 @import url("../blocks/form/__button/_hidden/form__button_hidden.css");
 @import url("../blocks/form/__button/_disabled/_hidden/form__button_disabled_hidden.css");
 

@@ -90,6 +90,8 @@ export default class Card {
 
     if (this._ownerId !== this._userId) {
       this._elementBasket.style.display = "none";
+    }else{
+      this._elementBasket.style.display = "block";
     }
 
 
