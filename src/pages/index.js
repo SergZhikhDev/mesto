@@ -19,8 +19,28 @@ import {
   avatarImg,
 } from "../scripts/utils/constants.js";
 
+let userId;
+
+Promise.all([api.getProfile(), api.getInitialCards()])
+  .then((values) => {
+    const res = values[0];
+    const cardList = values[1];
+
+    userInfo.setUserInfo(res.name, res.about, res.avatar, res._id);
+    userId = res._id;
+    avatarImg.src = res.avatar;
+    cardList.forEach((data) => {
+      data.userId = userId;
+    });
+
+    defaultCardList.renderItems(cardList);
+  })
+  .catch((err) => {
+    console.log(`Ошибка: ${err}`);
+  });
+
 const defaultCardList = new Section(
-  { renderer: createCard },
+  { items: [], renderer: createCard },
   selectors.cardListSelector
 );
 
@@ -41,26 +61,6 @@ const popupAddCardForm = new PopupWithForm(
 
 const popupSafetyIssue = new PopupWithForm(".popup_type_safety-issue");
 const userInfo = new UserInfo(selectors);
-
-let userId;
-
-Promise.all([api.getProfile(), api.getInitialCards()])
-
-  .then((values) => {
-    const res = values[0];
-    const cardList = values[1];
-    userInfo.setUserInfo(res.name, res.about, res.avatar, res._id);
-    userId = res._id;
-    avatarImg.src = res.avatar;
-
-    cardList.forEach((data) => {
-      data.userId = userId;
-      defaultCardList.renderItems(data);
-    });
-  })
-  .catch((err) => {
-    console.log(`Ошибка: ${err}`);
-  });
 
 popupAvatarUpdate.setEventListeners();
 popupPoster.setEventListeners();
@@ -187,7 +187,8 @@ function handleAddFormSubmit(values) {
     .addCard(values["place"], values["placeLink"])
     .then((res) => {
       res.userId = res.owner._id;
-      defaultCardList.renderItems(res);
+      defaultCardList.addItem(createCard(res));
+
       popupAddCardForm.close();
     })
     .catch((err) => {
@@ -197,5 +198,4 @@ function handleAddFormSubmit(values) {
       popupAddCardForm.renderLoading(false);
     });
 }
-
 enableValidation(config);
