@@ -21,6 +21,6 @@
 * Markdown
 
 
-* [Ссылка на проект в Git Hub Pages](https://234349.github.io/mesto/)
+* [Ссылка на проект в Git Hub Pages](https://sergzhikhdev.github.io/mesto/)
 
 
