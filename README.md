@@ -17,7 +17,9 @@
 * DOM
 * Grid
 * БЭМ
+* JavaScript
 * Формы (создание и валидация)
+* Git
 * Markdown
 
 
